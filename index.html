@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Base Note Data — Marketing measurement, made legible</title>
+<meta name="description" content="Base Note Data is a fractional marketing measurement partner. Marketing mix modeling, incrementality testing, attribution, and the data engineering behind them.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --ink:#241B24;
+    --ink-soft:#2E222E;
+    --parchment:#F5EAE1;
+    --parchment-soft:#EDDDD1;
+    --clay:#A8536A;
+    --amber:#D3987E;
+    --sage:#8A7484;
+    --ink-text:#2E2230;
+    --parchment-text:#F3E6DE;
+    --muted-on-ink:#A8919E;
+    --muted-on-parchment:#7A6670;
+    --hairline-ink:rgba(243,230,222,0.14);
+    --hairline-parchment:rgba(46,34,48,0.14);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--ink);
+    color:var(--parchment-text);
+    font-family:'Inter',sans-serif;
+    font-size:16px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+  a{color:inherit;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 32px;}
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.14em;
+    text-transform:uppercase;
+    color:var(--amber);
+  }
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;margin:0;}
+  p{margin:0;}
+
+  /* nav */
+  header.site{
+    padding:28px 0;
+    border-bottom:1px solid var(--hairline-ink);
+  }
+  header.site .wrap{display:flex;align-items:center;justify-content:space-between;}
+  .wordmark{
+    font-family:'Fraunces',serif;
+    font-size:18px;
+    font-weight:600;
+    letter-spacing:0.01em;
+  }
+  .wordmark span{color:var(--amber);}
+  nav.links{display:flex;gap:32px;font-size:14px;}
+  nav.links a{text-decoration:none;color:var(--muted-on-ink);transition:color .15s ease;}
+  nav.links a:hover, nav.links a:focus-visible{color:var(--parchment-text);}
+
+  /* hero */
+  section.hero{padding:88px 0 96px;}
+  .hero-grid{display:grid;grid-template-columns:1.15fr 0.85fr;gap:56px;align-items:center;}
+  .hero-grid h1{
+    font-size:52px;
+    line-height:1.12;
+    letter-spacing:-0.01em;
+    color:var(--parchment-text);
+    margin:18px 0 26px;
+  }
+  .hero-grid h1 em{font-style:italic;color:var(--amber);}
+  .hero-sub{font-size:17px;color:var(--muted-on-ink);max-width:46ch;margin-bottom:34px;}
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    text-decoration:none;
+    padding:14px 24px;
+    border-radius:2px;
+    border:1px solid var(--amber);
+    color:var(--ink);
+    background:var(--amber);
+    transition:background .15s ease, color .15s ease;
+  }
+  .btn:hover, .btn:focus-visible{background:transparent;color:var(--amber);}
+  .btn.ghost{background:transparent;color:var(--parchment-text);border-color:var(--hairline-ink);}
+  .btn.ghost:hover, .btn.ghost:focus-visible{border-color:var(--amber);color:var(--amber);}
+
+  /* pyramid */
+  .pyramid-figure{display:flex;flex-direction:column;align-items:center;}
+  .pyramid-figure svg{width:100%;max-width:300px;height:auto;}
+  .pyramid-caption{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    color:var(--muted-on-ink);
+    text-align:center;
+    margin-top:14px;
+    letter-spacing:0.03em;
+  }
+
+  /* notes section */
+  section.notes{background:var(--parchment);color:var(--ink-text);padding:96px 0;}
+  section.notes .section-head{max-width:60ch;margin-bottom:56px;}
+  section.notes .eyebrow{color:var(--clay);}
+  section.notes h2{font-size:34px;line-height:1.2;color:var(--ink-text);margin-top:14px;}
+  .notes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:40px;}
+  .note-card{border-top:2px solid var(--ink-text);padding-top:20px;}
+  .note-card.top{border-color:var(--sage);}
+  .note-card.heart{border-color:var(--amber);}
+  .note-card.base{border-color:var(--clay);}
+  .note-tag{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    display:block;
+    margin-bottom:10px;
+  }
+  .note-card.top .note-tag{color:var(--sage);}
+  .note-card.heart .note-tag{color:var(--amber);}
+  .note-card.base .note-tag{color:var(--clay);}
+  .note-card p{font-size:15px;color:var(--muted-on-parchment);}
+  .note-card h3{font-size:19px;margin-bottom:8px;color:var(--ink-text);}
+
+  /* services */
+  section.work{background:var(--ink);padding:96px 0;}
+  section.work .section-head{max-width:60ch;margin-bottom:56px;}
+  section.work h2{font-size:34px;color:var(--parchment-text);margin-top:14px;}
+  .work-list{border-top:1px solid var(--hairline-ink);}
+  .work-item{
+    display:grid;
+    grid-template-columns:1fr 2fr;
+    gap:40px;
+    padding:32px 0;
+    border-bottom:1px solid var(--hairline-ink);
+  }
+  .work-item h3{font-size:21px;color:var(--parchment-text);}
+  .work-item p{color:var(--muted-on-ink);font-size:15px;max-width:52ch;}
+
+  /* about */
+  section.about{background:var(--parchment);color:var(--ink-text);padding:96px 0;}
+  .about-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:56px;align-items:start;}
+  section.about h2{font-size:34px;color:var(--ink-text);margin-top:14px;}
+  .about-grid p{font-size:16px;color:var(--muted-on-parchment);margin-bottom:16px;}
+  .credentials{
+    display:flex;
+    flex-wrap:wrap;
+    gap:12px 28px;
+    margin-top:28px;
+    padding-top:24px;
+    border-top:1px solid var(--hairline-parchment);
+  }
+  .credentials span{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    letter-spacing:0.05em;
+    text-transform:uppercase;
+    color:var(--muted-on-parchment);
+  }
+
+  /* contact */
+  section.contact{background:var(--ink);padding:96px 0 100px;}
+  .contact-grid{display:grid;grid-template-columns:0.9fr 1.1fr;gap:64px;}
+  section.contact h2{font-size:34px;color:var(--parchment-text);margin-top:14px;}
+  .contact-sub{color:var(--muted-on-ink);font-size:16px;margin-top:18px;max-width:38ch;}
+  .direct-email{
+    display:inline-block;
+    margin-top:28px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:14px;
+    color:var(--amber);
+    text-decoration:none;
+    border-bottom:1px solid transparent;
+  }
+  .direct-email:hover, .direct-email:focus-visible{border-color:var(--amber);}
+
+  form.contact-form{display:flex;flex-direction:column;gap:18px;}
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:18px;}
+  label{
+    display:block;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:0.08em;
+    text-transform:uppercase;
+    color:var(--muted-on-ink);
+    margin-bottom:8px;
+  }
+  input, textarea{
+    width:100%;
+    background:var(--ink-soft);
+    border:1px solid var(--hairline-ink);
+    border-radius:2px;
+    padding:12px 14px;
+    color:var(--parchment-text);
+    font-family:'Inter',sans-serif;
+    font-size:15px;
+  }
+  input:focus-visible, textarea:focus-visible{
+    outline:none;
+    border-color:var(--amber);
+    box-shadow:0 0 0 3px rgba(193,127,62,0.2);
+  }
+  textarea{resize:vertical;min-height:120px;}
+  button.submit{
+    align-self:flex-start;
+    margin-top:6px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:13px;
+    letter-spacing:0.04em;
+    text-transform:uppercase;
+    padding:14px 28px;
+    background:var(--amber);
+    color:var(--ink);
+    border:1px solid var(--amber);
+    border-radius:2px;
+    cursor:pointer;
+    transition:background .15s ease, color .15s ease;
+  }
+  button.submit:hover, button.submit:focus-visible{background:transparent;color:var(--amber);}
+  .honey{position:absolute;left:-9999px;}
+
+  footer.site{
+    border-top:1px solid var(--hairline-ink);
+    padding:32px 0;
+  }
+  footer.site .wrap{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:12px;
+    color:var(--muted-on-ink);
+  }
+  footer.site a{text-decoration:none;color:var(--muted-on-ink);}
+  footer.site a:hover, footer.site a:focus-visible{color:var(--amber);}
+
+  @media (max-width:860px){
+    .hero-grid, .about-grid, .contact-grid{grid-template-columns:1fr;}
+    .notes-grid{grid-template-columns:1fr;gap:32px;}
+    .work-item{grid-template-columns:1fr;gap:10px;}
+    .hero-grid h1{font-size:38px;}
+    section.hero{padding:56px 0 64px;}
+    section.notes, section.work, section.about, section.contact{padding:64px 0;}
+    .field-row{grid-template-columns:1fr;}
+    nav.links{display:none;}
+  }
+  @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
+  }
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap">
+    <div class="wordmark">Base<span>·</span>Note Data</div>
+    <nav class="links">
+      <a href="#work">Services</a>
+      <a href="#about">About</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <p class="eyebrow">Marketing measurement · Fractional partner</p>
+      <h1>Make marketing performance <em>legible.</em></h1>
+      <p class="hero-sub">I help growth and marketing teams tell the difference between what looks like impact and what is impact — with rigorous MMM, incrementality testing, and attribution built to survive scrutiny.</p>
+      <a class="btn" href="#contact">Start a conversation</a>
+    </div>
+    <div class="pyramid-figure">
+      <svg viewBox="0 0 300 280" role="img" aria-labelledby="pyramidTitle pyramidDesc">
+        <title id="pyramidTitle">Marketing signal pyramid</title>
+        <desc id="pyramidDesc">A triangle divided into three tiers: top notes, heart notes, and base notes, representing how quickly different marketing metrics fade or endure.</desc>
+        <polygon points="150,20 106.7,100 193.3,100" fill="#8A7484" fill-opacity="0.35" stroke="#8A7484" stroke-width="1"/>
+        <polygon points="106.7,100 193.3,100 236.7,180 63.3,180" fill="#D3987E" fill-opacity="0.55" stroke="#D3987E" stroke-width="1"/>
+        <polygon points="63.3,180 236.7,180 280,260 20,260" fill="#A8536A" stroke="#A8536A" stroke-width="1"/>
+        <text x="150" y="66" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="9" letter-spacing="1" fill="#F3E6DE">TOP</text>
+        <text x="150" y="146" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="10" letter-spacing="1" fill="#2E2230">HEART</text>
+        <text x="150" y="225" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="1" fill="#F3E6DE">BASE</text>
+      </svg>
+      <p class="pyramid-caption">what fades first, and what's still there when the deal closes</p>
+    </div>
+  </div>
+</section>
+
+<section class="notes" id="notes">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">The thesis</p>
+      <h2>What fades, what lingers.</h2>
+    </div>
+    <div class="notes-grid">
+      <div class="note-card top">
+        <span class="note-tag">Top notes</span>
+        <h3>Impressions, clicks, last touch</h3>
+        <p>The first thing everyone smells. Loud and immediate — and gone by the time a deal actually closes.</p>
+      </div>
+      <div class="note-card heart">
+        <span class="note-tag">Heart notes</span>
+        <h3>Engagement, mid-funnel movement</h3>
+        <p>The body of the story. Attribution-modeled contribution that's real, but only ever part of the picture.</p>
+      </div>
+      <div class="note-card base">
+        <span class="note-tag">Base notes</span>
+        <h3>Incrementality, MMM-derived effect</h3>
+        <p>What's still there after everything else has faded — the signal that actually explains what happened.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="work" id="work">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">The work</p>
+      <h2>A fractional measurement partner.</h2>
+    </div>
+    <div class="work-list">
+      <div class="work-item">
+        <h3>Marketing mix modeling</h3>
+        <p>Build the model that separates channel effect from seasonality, macro noise, and everything else competing for credit.</p>
+      </div>
+      <div class="work-item">
+        <h3>Incrementality testing</h3>
+        <p>Geo-lift, holdout, and synthetic control designs that show what actually happens when a channel goes dark.</p>
+      </div>
+      <div class="work-item">
+        <h3>Multi-touch attribution</h3>
+        <p>Attribution built to reflect how customers actually move — not just which touch happened last.</p>
+      </div>
+      <div class="work-item">
+        <h3>Measurement data engineering</h3>
+        <p>The pipelines and infrastructure that make the above possible, and reliable enough to run every quarter.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div>
+      <p class="eyebrow">About</p>
+      <h2>Chelsea Cramer, founder</h2>
+    </div>
+    <div>
+      <p>Base Note Data is a solo consultancy built on 13+ years inside marketing measurement and analytics — spanning fintech, health and wellness, and B2B.</p>
+      <p>Prior work includes leading TV measurement and marketing mix modeling at Credit Karma, and building enterprise marketing analytics at Gympass. Now working fractionally with teams who need the same rigor without the full-time headcount.</p>
+      <div class="credentials">
+        <span>Credit Karma</span>
+        <span>Gympass</span>
+        <span>Fintech</span>
+        <span>Health &amp; wellness</span>
+        <span>B2B</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact" id="contact">
+  <div class="wrap contact-grid">
+    <div>
+      <p class="eyebrow">Get in touch</p>
+      <h2>Let's talk.</h2>
+      <p class="contact-sub">Tell me what's not adding up, and I'll tell you honestly whether I can help.</p>
+      <a class="direct-email" href="mailto:chelsea@basenotedata.com">chelsea@basenotedata.com</a>
+    </div>
+    <form class="contact-form" action="https://formsubmit.co/chelsea@basenotedata.com" method="POST">
+      <input type="hidden" name="_subject" value="New inquiry — Base Note Data">
+      <input type="hidden" name="_template" value="table">
+      <input type="hidden" name="_captcha" value="true">
+      <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off">
+      <div class="field-row">
+        <div>
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" required>
+        </div>
+        <div>
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" required>
+        </div>
+      </div>
+      <div>
+        <label for="company">Company</label>
+        <input type="text" id="company" name="company">
+      </div>
+      <div>
+        <label for="message">Message</label>
+        <textarea id="message" name="message" required placeholder="What's going on with your measurement?"></textarea>
+      </div>
+      <button class="submit" type="submit">Send message</button>
+    </form>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <span>Base Note Data © 2026</span>
+    <a href="mailto:chelsea@basenotedata.com">basenotedata.com</a>
+  </div>
+</footer>
+
+</body>
+</html>
