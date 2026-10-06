@@ -8,8 +8,8 @@
 <meta property="og:title" content="Is your marketing measurement best-in-class?">
 <meta property="og:description" content="Nine questions. Two minutes. See how close you are to best-in-class measurement and what to do next.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://basenotedata.com/maturity-quiz">
-<link rel="canonical" href="https://basenotedata.com/maturity-quiz">
+<meta property="og:url" content="https://basenotedata.com/best-in-class-quiz">
+<link rel="canonical" href="https://basenotedata.com/best-in-class-quiz">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -18,7 +18,7 @@
   "@context": "https://schema.org",
   "@type": "WebPage",
   "name": "Best-in-Class Marketing Measurement Quiz",
-  "url": "https://basenotedata.com/maturity-quiz",
+  "url": "https://basenotedata.com/best-in-class-quiz",
   "description": "A nine-question self-assessment that places a brand on a five-stage path to best-in-class marketing measurement (Platform-Reliant, Attribution-Led, Experimenting, Triangulated, Best-in-Class) and recommends next steps across methods, budget decisions, and data foundations.",
   "author": { "@id": "https://basenotedata.com/#chelsea" },
   "publisher": { "@id": "https://basenotedata.com/#org" }
@@ -158,7 +158,7 @@
       <a href="/#work">Services</a>
       <a href="/#about">About</a>
       <a href="/speaking">Speaking</a>
-      <a href="/maturity-quiz" aria-current="page">Measurement Quiz</a>
+      <a href="/best-in-class-quiz" aria-current="page">Measurement Quiz</a>
       <a href="/#contact">Contact</a>
     </nav>
   </div>
@@ -375,7 +375,7 @@
       b.innerHTML = '<span class="dot"></span><span></span>';
       b.lastChild.textContent = text;
       b.onclick = function () {
-        if (!started) { started = true; track("maturity_quiz_start"); }
+        if (!started) { started = true; track("best_in_class_quiz_start"); }
         answers[idx] = i; renderQ();
         setTimeout(next, 260); // auto-advance after a beat
       };
@@ -468,13 +468,13 @@
       dimTxt + ". Full result and answers: " + resultUrl();
     var cal = "https://calendly.com/chelsea-basenotedata/30min" +
       "?a1=" + encodeURIComponent(note) +
-      "&utm_source=basenotedata.com&utm_medium=maturity_quiz" +
+      "&utm_source=basenotedata.com&utm_medium=best_in_class_quiz" +
       "&utm_campaign=" + encodeURIComponent(st.name.toLowerCase()) +
       "&utm_content=" + answers.join("");
     $("bnd-cta").href = cal;
-    $("bnd-cta").onclick = function () { track("maturity_quiz_book_click", { stage: st.name, score: s.total }); };
+    $("bnd-cta").onclick = function () { track("best_in_class_quiz_book_click", { stage: st.name, score: s.total }); };
 
-    track("maturity_quiz_complete", { stage: st.name, score: s.total });
+    track("best_in_class_quiz_complete", { stage: st.name, score: s.total });
     if (fresh) logCompletion(st, s, dimTxt);
   }
 
@@ -550,7 +550,7 @@
   function resultUrl() {
     var base = "";
     try { base = location.href.split("#")[0]; } catch (e) {}
-    if (!/^https?:/.test(base)) base = "https://basenotedata.com/maturity-quiz"; // fallback when previewing
+    if (!/^https?:/.test(base)) base = "https://basenotedata.com/best-in-class-quiz"; // fallback when previewing
     return base + "#r=" + answers.join("");
   }
 
