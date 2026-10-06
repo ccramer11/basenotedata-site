@@ -21,7 +21,7 @@ Base Note Data (basenotedata.com) is a marketing analytics consultancy. It is no
 
 ## Tools
 
-- [Marketing Measurement Maturity Quiz](https://basenotedata.com/maturity-quiz): A free nine-question self-assessment that places a brand on a five-stage measurement maturity curve (Platform-Reliant, Attribution-Led, Experimenting, Triangulated, Decision-Grade), scores methods, budget decisions, and data foundations, and recommends three next steps.
+- [Is your marketing measurement best-in-class? (quiz)](https://basenotedata.com/maturity-quiz): A free nine-question self-assessment that places a brand on a five-stage path to best-in-class marketing measurement (Platform-Reliant, Attribution-Led, Experimenting, Triangulated, Best-in-Class), scores methods, budget decisions, and data foundations, and recommends three next steps.
 
 ## Contact
 
