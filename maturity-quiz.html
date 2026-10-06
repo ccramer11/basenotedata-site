@@ -389,7 +389,7 @@
   function next() {
     if (answers[idx] === null) return;
     if (idx < QUESTIONS.length - 1) { idx++; renderQ(); show("bnd-q"); }
-    else finish();
+    else finish(true);
   }
 
   function score() {
@@ -401,7 +401,7 @@
     return { total: total, max: QUESTIONS.length * 3, dims: d };
   }
 
-  function finish() {
+  function finish(fresh) {
     var s = score();
     var stageIdx = STAGES.findIndex(function (st) { return s.total <= st.max; });
     var st = STAGES[stageIdx];
@@ -475,6 +475,7 @@
     $("bnd-cta").onclick = function () { track("maturity_quiz_book_click", { stage: st.name, score: s.total }); };
 
     track("maturity_quiz_complete", { stage: st.name, score: s.total });
+    if (fresh) logCompletion(st, s, dimTxt);
   }
 
   // ---------- Curve ----------
@@ -513,6 +514,33 @@
     var lx = Math.min(W - 70, Math.max(70, m[0]));
     html += "<text x='" + lx + "' y='" + (m[1] - 24) + "' text-anchor='middle' font-family='Inter, sans-serif' font-size='16' font-weight='600' fill='var(--ink-text)'>You are here</text>";
     svg.innerHTML = html;
+  }
+
+  // Email every fresh completion to Chelsea (anonymous: answers only, no contact details)
+  function logCompletion(st, s, dimTxt) {
+    try {
+      var params = {};
+      try { new URLSearchParams(location.search).forEach(function (v, k) { params[k] = v; }); } catch (e) {}
+      var data = {
+        _subject: "Quiz completion: " + st.name + " (" + s.total + "/" + s.max + ")",
+        _template: "table",
+        _captcha: "false",
+        Stage: st.short + " " + st.name,
+        Score: s.total + " / " + s.max,
+        Dimensions: dimTxt,
+        "Result link": resultUrl(),
+        "Came from": document.referrer || "direct",
+        "Page URL params": Object.keys(params).map(function (k) { return k + "=" + params[k]; }).join(", ") || "none",
+        Device: window.innerWidth < 768 ? "mobile" : "desktop"
+      };
+      QUESTIONS.forEach(function (Q, i) { data["Q" + (i + 1) + ". " + Q.q] = Q.a[answers[i]]; });
+      fetch("https://formsubmit.co/ajax/chelsea@basenotedata.com", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify(data),
+        keepalive: true
+      }).catch(function () {});
+    } catch (e) {}
   }
 
   // URL updates can be blocked in sandboxed previews or embeds; never let that break the quiz
