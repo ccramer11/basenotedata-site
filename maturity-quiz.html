@@ -116,6 +116,14 @@
   .cta p{color:var(--muted-on-ink);margin:12px 0 26px;max-width:56ch;}
   .quiz .cta .btn{background:var(--amber);border-color:var(--amber);color:var(--ink);}
   .quiz .cta .btn:hover, .quiz .cta .btn:focus-visible{background:transparent;color:var(--amber);}
+  .answers summary{cursor:pointer;list-style:none;display:flex;align-items:center;gap:10px;}
+  .answers summary::-webkit-details-marker{display:none;}
+  .answers summary::after{content:"+";font-family:'IBM Plex Mono',monospace;color:var(--clay);}
+  .answers[open] summary::after{content:"\2212";}
+  .answers ol{margin:20px 0 0;padding-left:20px;display:grid;gap:14px;font-size:15px;}
+  .answers li b{display:block;font-weight:600;color:var(--ink-text);}
+  .answers li span{color:var(--muted-on-parchment);}
+  .cta .cta-note{font-size:13px;margin:14px 0 0;}
   .actions{display:flex;gap:12px;flex-wrap:wrap;}
   footer.site{border-top:1px solid var(--hairline-ink);padding:32px 0;}
   footer.site .wrap{display:flex;justify-content:space-between;align-items:center;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted-on-ink);}
@@ -202,10 +210,17 @@
           <h3 style="margin-top:10px">Your next three moves</h3>
           <ol class="moves" id="bnd-moves"></ol>
         </div>
+        <div class="card">
+          <details class="answers">
+            <summary><span class="eyebrow">Your answers</span></summary>
+            <ol id="bnd-answers"></ol>
+          </details>
+        </div>
         <div class="cta">
           <h3>Want a second set of eyes on it?</h3>
           <p>I help brands build measurement that holds up in a finance review: MMM, incrementality and geo testing, and the operating rhythm to actually use them. Bring your result and we'll map out what's worth doing first.</p>
-          <a class="btn" id="bnd-cta" href="mailto:chelsea@basenotedata.com?subject=Measurement%20maturity%20quiz">Book a free 30-min call</a>
+          <a class="btn" id="bnd-cta" href="https://calendly.com/chelsea-basenotedata/30min" target="_blank" rel="noopener">Book a free intro call</a>
+          <p class="cta-note">Your result is attached to the booking automatically, so we can skip the basics.</p>
         </div>
         <div class="actions">
           <button class="btn ghost" id="bnd-copy">Copy link to my result</button>
@@ -374,7 +389,7 @@
   function next() {
     if (answers[idx] === null) return;
     if (idx < QUESTIONS.length - 1) { idx++; renderQ(); show("bnd-q"); }
-    else finish();
+    else finish(true);
   }
 
   function score() {
@@ -386,7 +401,7 @@
     return { total: total, max: QUESTIONS.length * 3, dims: d };
   }
 
-  function finish() {
+  function finish(fresh) {
     var s = score();
     var stageIdx = STAGES.findIndex(function (st) { return s.total <= st.max; });
     var st = STAGES[stageIdx];
@@ -435,7 +450,32 @@
     $("bnd-prog").style.width = "100%";
     show("bnd-result");
     setHash("#r=" + answers.join(""));
+    // answers list
+    var al = $("bnd-answers"); al.innerHTML = "";
+    QUESTIONS.forEach(function (Q, i) {
+      var li = document.createElement("li");
+      li.innerHTML = "<b></b><span></span>";
+      li.querySelector("b").textContent = Q.q;
+      li.querySelector("span").textContent = Q.a[answers[i]];
+      al.appendChild(li);
+    });
+
+    // Calendly: prefill the result into the booking so it shows up in the invite
+    var dimTxt = Object.keys(DIMS).map(function (k) {
+      return DIMS[k].label + " " + Math.round(s.dims[k].got / s.dims[k].max * 100) + "%";
+    }).join(", ");
+    var note = "Maturity quiz: " + st.short + " " + st.name + " (" + s.total + "/" + s.max + "). " +
+      dimTxt + ". Full result and answers: " + resultUrl();
+    var cal = "https://calendly.com/chelsea-basenotedata/30min" +
+      "?a1=" + encodeURIComponent(note) +
+      "&utm_source=basenotedata.com&utm_medium=maturity_quiz" +
+      "&utm_campaign=" + encodeURIComponent(st.name.toLowerCase()) +
+      "&utm_content=" + answers.join("");
+    $("bnd-cta").href = cal;
+    $("bnd-cta").onclick = function () { track("maturity_quiz_book_click", { stage: st.name, score: s.total }); };
+
     track("maturity_quiz_complete", { stage: st.name, score: s.total });
+    if (fresh) logCompletion(st, s, dimTxt);
   }
 
   // ---------- Curve ----------
@@ -474,6 +514,33 @@
     var lx = Math.min(W - 70, Math.max(70, m[0]));
     html += "<text x='" + lx + "' y='" + (m[1] - 24) + "' text-anchor='middle' font-family='Inter, sans-serif' font-size='16' font-weight='600' fill='var(--ink-text)'>You are here</text>";
     svg.innerHTML = html;
+  }
+
+  // Email every fresh completion to Chelsea (anonymous: answers only, no contact details)
+  function logCompletion(st, s, dimTxt) {
+    try {
+      var params = {};
+      try { new URLSearchParams(location.search).forEach(function (v, k) { params[k] = v; }); } catch (e) {}
+      var data = {
+        _subject: "Quiz completion: " + st.name + " (" + s.total + "/" + s.max + ")",
+        _template: "table",
+        _captcha: "false",
+        Stage: st.short + " " + st.name,
+        Score: s.total + " / " + s.max,
+        Dimensions: dimTxt,
+        "Result link": resultUrl(),
+        "Came from": document.referrer || "direct",
+        "Page URL params": Object.keys(params).map(function (k) { return k + "=" + params[k]; }).join(", ") || "none",
+        Device: window.innerWidth < 768 ? "mobile" : "desktop"
+      };
+      QUESTIONS.forEach(function (Q, i) { data["Q" + (i + 1) + ". " + Q.q] = Q.a[answers[i]]; });
+      fetch("https://formsubmit.co/ajax/chelsea@basenotedata.com", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", "Accept": "application/json" },
+        body: JSON.stringify(data),
+        keepalive: true
+      }).catch(function () {});
+    } catch (e) {}
   }
 
   // URL updates can be blocked in sandboxed previews or embeds; never let that break the quiz
