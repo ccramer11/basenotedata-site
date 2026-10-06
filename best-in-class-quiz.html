@@ -3,13 +3,13 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Marketing Measurement Maturity Quiz | Base Note Data</title>
-<meta name="description" content="Nine questions to find where your brand sits on the marketing measurement maturity curve, from platform-reported ROAS to decision-grade MMM and incrementality testing. Free, about two minutes, from Chelsea Cramer at Base Note Data.">
-<meta property="og:title" content="What's your marketing measurement maturity?">
-<meta property="og:description" content="Nine questions. Two minutes. Find out where you sit on the measurement maturity curve and what to do next.">
+<title>Is Your Marketing Measurement Best-in-Class? | Base Note Data</title>
+<meta name="description" content="Nine questions to see how close your marketing measurement is to best-in-class, from platform-reported ROAS to calibrated MMM and incrementality testing that drives budget. Free, about two minutes, from Chelsea Cramer at Base Note Data.">
+<meta property="og:title" content="Is your marketing measurement best-in-class?">
+<meta property="og:description" content="Nine questions. Two minutes. See how close you are to best-in-class measurement and what to do next.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://basenotedata.com/maturity-quiz">
-<link rel="canonical" href="https://basenotedata.com/maturity-quiz">
+<meta property="og:url" content="https://basenotedata.com/best-in-class-quiz">
+<link rel="canonical" href="https://basenotedata.com/best-in-class-quiz">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -17,9 +17,9 @@
 {
   "@context": "https://schema.org",
   "@type": "WebPage",
-  "name": "Marketing Measurement Maturity Quiz",
-  "url": "https://basenotedata.com/maturity-quiz",
-  "description": "A nine-question self-assessment that places a brand on a five-stage marketing measurement maturity curve (Platform-Reliant, Attribution-Led, Experimenting, Triangulated, Decision-Grade) and recommends next steps across methods, budget decisions, and data foundations.",
+  "name": "Best-in-Class Marketing Measurement Quiz",
+  "url": "https://basenotedata.com/best-in-class-quiz",
+  "description": "A nine-question self-assessment that places a brand on a five-stage path to best-in-class marketing measurement (Platform-Reliant, Attribution-Led, Experimenting, Triangulated, Best-in-Class) and recommends next steps across methods, budget decisions, and data foundations.",
   "author": { "@id": "https://basenotedata.com/#chelsea" },
   "publisher": { "@id": "https://basenotedata.com/#org" }
 }
@@ -158,7 +158,7 @@
       <a href="/#work">Services</a>
       <a href="/#about">About</a>
       <a href="/speaking">Speaking</a>
-      <a href="/maturity-quiz" aria-current="page">Maturity Quiz</a>
+      <a href="/best-in-class-quiz" aria-current="page">Measurement Quiz</a>
       <a href="/#contact">Contact</a>
     </nav>
   </div>
@@ -166,9 +166,9 @@
 
 <section class="hero">
   <div class="wrap">
-    <p class="eyebrow">Measurement maturity quiz</p>
-    <h1>How mature is your marketing measurement?</h1>
-    <p class="hero-sub">Nine questions on how you test, model, monitor, and make budget calls. You'll see where you sit on the maturity curve and the next three moves that would actually change your decisions.</p>
+    <p class="eyebrow">Best-in-class measurement quiz</p>
+    <h1>Is your marketing measurement <span style="white-space:nowrap">best-in-class?</span></h1>
+    <p class="hero-sub">Nine questions on how you test, model, monitor, and make budget calls. You'll see how close you are to best-in-class and the next three moves that would actually change your decisions.</p>
     <div class="hero-meta">
       <a class="btn" href="#quiz" id="bnd-start">Start the quiz</a>
       <span>About 2 minutes · No email required</span>
@@ -196,7 +196,7 @@
           <p class="eyebrow stage-tag" id="bnd-stagetag"></p>
           <h2 class="stage-name" id="bnd-stagename"></h2>
           <p class="stage-desc" id="bnd-stagedesc"></p>
-          <svg class="curve" id="bnd-curve" viewBox="0 0 640 210" role="img" aria-label="Measurement maturity curve"></svg>
+          <svg class="curve" id="bnd-curve" viewBox="0 0 640 210" role="img" aria-label="Path to best-in-class measurement"></svg>
           <div class="stages" id="bnd-stages"></div>
         </div>
         <div class="card">
@@ -334,7 +334,7 @@
         ["Bring finance into the model", "Co-own assumptions on payback and LTV so budget conversations start from shared numbers instead of a debate about them."],
         ["Measure what you've been leaving out", "Creative, pricing and promo effects, and long-term brand impact are usually the next unlock at this stage."]
       ]},
-    { max: 99, name: "Decision-Grade", short: "Stage 5",
+    { max: 99, name: "Best-in-Class", short: "Stage 5",
       desc: "Measurement runs the budget. You're in rare company. The work now is keeping it that way as channels, privacy rules, and your business change underneath you.",
       moves: [
         ["Automate the watching, keep people on the why", "Let AI or anomaly detection flag drift and surprises, and re-validate the model with fresh holdouts a couple of times a year. Models drift quietly."],
@@ -375,7 +375,7 @@
       b.innerHTML = '<span class="dot"></span><span></span>';
       b.lastChild.textContent = text;
       b.onclick = function () {
-        if (!started) { started = true; track("maturity_quiz_start"); }
+        if (!started) { started = true; track("best_in_class_quiz_start"); }
         answers[idx] = i; renderQ();
         setTimeout(next, 260); // auto-advance after a beat
       };
@@ -464,17 +464,17 @@
     var dimTxt = Object.keys(DIMS).map(function (k) {
       return DIMS[k].label + " " + Math.round(s.dims[k].got / s.dims[k].max * 100) + "%";
     }).join(", ");
-    var note = "Maturity quiz: " + st.short + " " + st.name + " (" + s.total + "/" + s.max + "). " +
+    var note = "Best-in-class quiz: " + st.short + " " + st.name + " (" + s.total + "/" + s.max + "). " +
       dimTxt + ". Full result and answers: " + resultUrl();
     var cal = "https://calendly.com/chelsea-basenotedata/30min" +
       "?a1=" + encodeURIComponent(note) +
-      "&utm_source=basenotedata.com&utm_medium=maturity_quiz" +
+      "&utm_source=basenotedata.com&utm_medium=best_in_class_quiz" +
       "&utm_campaign=" + encodeURIComponent(st.name.toLowerCase()) +
       "&utm_content=" + answers.join("");
     $("bnd-cta").href = cal;
-    $("bnd-cta").onclick = function () { track("maturity_quiz_book_click", { stage: st.name, score: s.total }); };
+    $("bnd-cta").onclick = function () { track("best_in_class_quiz_book_click", { stage: st.name, score: s.total }); };
 
-    track("maturity_quiz_complete", { stage: st.name, score: s.total });
+    track("best_in_class_quiz_complete", { stage: st.name, score: s.total });
     if (fresh) logCompletion(st, s, dimTxt);
   }
 
@@ -550,7 +550,7 @@
   function resultUrl() {
     var base = "";
     try { base = location.href.split("#")[0]; } catch (e) {}
-    if (!/^https?:/.test(base)) base = "https://basenotedata.com/maturity-quiz"; // fallback when previewing
+    if (!/^https?:/.test(base)) base = "https://basenotedata.com/best-in-class-quiz"; // fallback when previewing
     return base + "#r=" + answers.join("");
   }
 
