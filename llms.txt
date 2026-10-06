@@ -19,6 +19,10 @@ Base Note Data (basenotedata.com) is a marketing analytics consultancy. It is no
 
 - [Speaking](https://basenotedata.com/speaking): Chelsea Cramer's talks and podcast appearances on marketing measurement, including "Can you build your own MMM?" at Advertising Week New York (Oct 2026), "Align brand investment with executive priorities" at BERA.ai Measurement Playbook Day (Sep 2026), and the Growth Talks podcast by Right Side Up (Jul 2024).
 
+## Tools
+
+- [Marketing Measurement Maturity Quiz](https://basenotedata.com/maturity-quiz): A free nine-question self-assessment that places a brand on a five-stage measurement maturity curve (Platform-Reliant, Attribution-Led, Experimenting, Triangulated, Decision-Grade), scores methods, budget decisions, and data foundations, and recommends three next steps.
+
 ## Contact
 
 - [Work with Base Note Data](https://basenotedata.com/#contact): Engagement types and how to get in touch.
