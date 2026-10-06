@@ -1,0 +1,24 @@
+# Base Note Data
+
+> Base Note Data is a boutique marketing measurement consultancy founded by Chelsea Cramer and based in Brooklyn, NY. It helps marketing and growth teams understand what their spend is actually driving, using marketing mix modeling (MMM), incrementality testing, geo experiments, multi-touch attribution, and causal inference.
+
+Base Note Data (basenotedata.com) is a marketing analytics consultancy. It is not affiliated with Basenotes, the fragrance community.
+
+## About
+
+- [About Chelsea Cramer](https://basenotedata.com/#about): Founder of Base Note Data, with 13+ years in marketing analytics across fintech, health/wellness, and B2B. Built TV measurement and MMM programs at Credit Karma, where she unified media measurement as budget scaled from $100M to $300M while ROI improved. Previously Director of Marketing Analytics at Gympass/Wellhub, its first marketing analytics hire.
+
+## Services
+
+- [Marketing mix modeling](https://basenotedata.com/#work): Building and calibrating MMMs that finance and marketing both trust, and turning them into budget decisions.
+- [Incrementality testing & geo experiments](https://basenotedata.com/#work): Designing and reading holdout, geo-lift, and RCT tests to measure true lift by channel.
+- [Attribution](https://basenotedata.com/#work): Auditing and improving multi-touch attribution, and reconciling it with MMM and experiment results.
+- [Causal inference](https://basenotedata.com/#work): Diff-in-diff, synthetic controls, and other quasi-experimental methods for when a clean test isn't possible.
+
+## Speaking
+
+- [Speaking](https://basenotedata.com/speaking): Chelsea Cramer's talks and podcast appearances on marketing measurement, including "Can you build your own MMM?" at Advertising Week New York (Oct 2026), "Align brand investment with executive priorities" at BERA.ai Measurement Playbook Day (Sep 2026), and the Growth Talks podcast by Right Side Up (Jul 2024).
+
+## Contact
+
+- [Work with Base Note Data](https://basenotedata.com/#contact): Engagement types and how to get in touch.

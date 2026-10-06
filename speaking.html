@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Speaking | Chelsea Cramer, Base Note Data</title>
+<meta name="description" content="Chelsea Cramer, founder of Base Note Data, speaks on marketing measurement: MMM, incrementality testing, and aligning brand investment with what CMOs and CFOs need. Past talks include Advertising Week New York.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "Person",
+      "@id": "https://basenotedata.com/#chelsea",
+      "name": "Chelsea Cramer",
+      "jobTitle": "Founder",
+      "worksFor": { "@id": "https://basenotedata.com/#org" },
+      "description": "Marketing measurement consultant and speaker. Founder of Base Note Data; previously led marketing analytics at Credit Karma and Wellhub.",
+      "knowsAbout": ["Marketing mix modeling", "Incrementality testing", "Brand measurement", "Marketing attribution", "Causal inference"],
+      "sameAs": ["https://www.linkedin.com/in/chelseacramer"],
+      "subjectOf": { "@id": "https://open.spotify.com/episode/0ediaQFzhqK6ASaOe033f7" }
+    },
+    {
+      "@type": "Event",
+      "name": "Can you build your own MMM?",
+      "description": "Panel on whether teams can build their own marketing mix model with AI coding tools instead of buying a managed platform.",
+      "startDate": "2026-10-06T15:20:00-04:00",
+      "url": "https://newyork2026.advertisingweek.com/aw/schedule/session/-945-2026-10-06-1520-session",
+      "location": { "@type": "Place", "name": "Advertising Week New York 2026", "address": "New York, NY" },
+      "performer": { "@id": "https://basenotedata.com/#chelsea" }
+    },
+    {
+      "@type": "Event",
+      "name": "Align brand investment with executive priorities",
+      "description": "Panel at BERA.ai Measurement Playbook Day on making the case for brand investment and connecting it to the priorities of the CMO and CFO.",
+      "startDate": "2026-09",
+      "organizer": { "@type": "Organization", "name": "BERA.ai", "url": "https://bera.ai" },
+      "performer": [
+        { "@id": "https://basenotedata.com/#chelsea" },
+        { "@type": "Person", "name": "Valerie Nguyen" },
+        { "@type": "Person", "name": "Ann Marie Kerwin" }
+      ]
+    },
+    {
+      "@type": "PodcastEpisode",
+      "@id": "https://open.spotify.com/episode/0ediaQFzhqK6ASaOe033f7",
+      "name": "Marketing Analytics in a Cookieless World",
+      "url": "https://open.spotify.com/episode/0ediaQFzhqK6ASaOe033f7",
+      "datePublished": "2024-07-10",
+      "partOfSeries": { "@type": "PodcastSeries", "name": "Growth Talks", "publisher": { "@type": "Organization", "name": "Right Side Up" } },
+      "contributor": { "@id": "https://basenotedata.com/#chelsea" }
+    }
+  ]
+}
+</script>
+<style>
+  :root{
+    --ink:#241B24;
+    --ink-soft:#2E222E;
+    --parchment:#F5EAE1;
+    --parchment-soft:#EDDDD1;
+    --clay:#A8536A;
+    --amber:#D3987E;
+    --sage:#8A7484;
+    --ink-text:#2E2230;
+    --parchment-text:#F3E6DE;
+    --muted-on-ink:#A8919E;
+    --muted-on-parchment:#7A6670;
+    --hairline-ink:rgba(243,230,222,0.14);
+    --hairline-parchment:rgba(46,34,48,0.14);
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--ink);color:var(--parchment-text);font-family:'Inter',sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 32px;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--amber);}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;margin:0;}
+  p{margin:0;}
+  :focus-visible{outline:2px solid var(--amber);outline-offset:3px;}
+
+  header.site{padding:28px 0;border-bottom:1px solid var(--hairline-ink);}
+  header.site .wrap{display:flex;align-items:center;justify-content:space-between;}
+  .wordmark{font-family:'Fraunces',serif;font-size:18px;font-weight:600;letter-spacing:0.01em;text-decoration:none;}
+  .wordmark span{color:var(--amber);}
+  nav.links{display:flex;gap:32px;font-size:14px;}
+  nav.links a{text-decoration:none;color:var(--muted-on-ink);transition:color .15s ease;}
+  nav.links a:hover, nav.links a:focus-visible, nav.links a[aria-current]{color:var(--parchment-text);}
+
+  section.hero{padding:96px 0 88px;}
+  section.hero h1{font-size:52px;line-height:1.1;margin:18px 0 24px;max-width:18ch;color:var(--parchment-text);}
+  .hero-sub{font-size:17px;color:var(--muted-on-ink);max-width:52ch;margin-bottom:34px;}
+  .btn{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;padding:14px 28px;border:1px solid var(--amber);color:var(--ink);background:var(--amber);border-radius:2px;text-decoration:none;transition:background .15s ease, color .15s ease;}
+  .btn:hover, .btn:focus-visible{background:transparent;color:var(--amber);}
+
+  section.light{background:var(--parchment);color:var(--ink-text);padding:96px 0;}
+  section.light .eyebrow{color:var(--clay);}
+  section.dark{background:var(--ink);padding:96px 0;}
+  .section-head{max-width:60ch;margin-bottom:48px;}
+  .section-head h2{font-size:34px;line-height:1.2;margin-top:14px;}
+
+  .talks{list-style:none;margin:0;padding:0;border-top:1px solid var(--hairline-parchment);}
+  .talk{display:grid;grid-template-columns:1fr 2fr;gap:40px;padding:32px 0;border-bottom:1px solid var(--hairline-parchment);}
+  .talk time{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.05em;color:var(--clay);display:block;margin-bottom:6px;}
+  .talk .venue{font-size:15px;color:var(--muted-on-parchment);}
+  .talk h3{font-size:21px;line-height:1.3;margin-bottom:10px;color:var(--ink-text);}
+  .talk h3 a{text-decoration-color:var(--clay);text-underline-offset:4px;}
+  .talk p.desc{font-size:15px;color:var(--muted-on-parchment);max-width:52ch;}
+
+  .work-list{border-top:1px solid var(--hairline-ink);}
+  .work-item{display:grid;grid-template-columns:1fr 2fr;gap:40px;padding:32px 0;border-bottom:1px solid var(--hairline-ink);}
+  .work-item h3{font-size:21px;color:var(--parchment-text);}
+  .work-item p{color:var(--muted-on-ink);font-size:15px;max-width:52ch;}
+
+  .bios{display:grid;grid-template-columns:1fr 1fr;gap:48px;}
+  .bio{border-top:2px solid var(--ink-text);padding-top:20px;}
+  .bio.short{border-color:var(--amber);}
+  .bio.long{border-color:var(--clay);}
+  .bio h3{font-size:19px;margin-bottom:12px;color:var(--ink-text);}
+  .bio p{font-size:15px;color:var(--muted-on-parchment);margin-bottom:14px;}
+
+  section.contact{padding:96px 0 100px;}
+  section.contact h2{font-size:34px;margin:14px 0 18px;}
+  .contact-sub{color:var(--muted-on-ink);max-width:46ch;margin-bottom:30px;}
+
+  footer.site{border-top:1px solid var(--hairline-ink);padding:32px 0;}
+  footer.site .wrap{display:flex;justify-content:space-between;align-items:center;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted-on-ink);}
+  footer.site a{text-decoration:none;color:var(--muted-on-ink);}
+  footer.site a:hover, footer.site a:focus-visible{color:var(--amber);}
+
+  @media (max-width:860px){
+    section.hero h1{font-size:38px;}
+    section.hero{padding:56px 0 64px;}
+    section.light, section.dark, section.contact{padding:64px 0;}
+    .talk, .work-item{grid-template-columns:1fr;gap:10px;}
+    .bios{grid-template-columns:1fr;gap:32px;}
+    nav.links{display:none;}
+  }
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="wordmark" href="/">Base<span>·</span>Note Data</a>
+    <nav class="links">
+      <a href="/#work">Services</a>
+      <a href="/#about">About</a>
+      <a href="/speaking" aria-current="page">Speaking</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="eyebrow">Speaking</p>
+    <h1>Talks on proving what marketing actually drives.</h1>
+    <p class="hero-sub">Chelsea Cramer, founder of Base Note Data, speaks about marketing measurement in terms both marketers and finance can use: marketing mix modeling, incrementality testing, and how to get a CMO and a CFO to agree on the same number.</p>
+    <a class="btn" href="mailto:chelsea@basenotedata.com?subject=Speaking%20inquiry">Invite me to speak</a>
+  </div>
+</section>
+
+<section class="light">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Past talks</p>
+      <h2>Stages, panels, and podcasts.</h2>
+    </div>
+    <ol class="talks">
+      <li class="talk">
+        <div>
+          <time datetime="2026-10-06">Oct 2026</time>
+          <p class="venue">Advertising Week New York, panel on the Podcast Stage</p>
+        </div>
+        <div>
+          <h3><a href="https://newyork2026.advertisingweek.com/aw/schedule/session/-945-2026-10-06-1520-session">Can you build your own MMM?</a></h3>
+          <p class="desc">Whether teams can build their own marketing mix model with AI coding tools instead of buying a managed platform, what it really costs, and who should own it.</p>
+        </div>
+      </li>
+      <li class="talk">
+        <div>
+          <time datetime="2026-09">Sep 2026</time>
+          <p class="venue">BERA.ai Measurement Playbook Day, panel with Valerie Nguyen and Ann Marie Kerwin</p>
+        </div>
+        <div>
+          <h3>Align brand investment with executive priorities</h3>
+          <p class="desc">How to make the case for brand investment at a growth-focused company, and how to connect brand metrics to the revenue numbers a CFO plans around.</p>
+        </div>
+      </li>
+      <li class="talk">
+        <div>
+          <time datetime="2024-07-10">Jul 2024</time>
+          <p class="venue">Growth Talks podcast by Right Side Up, interview with Krystina Rubino</p>
+        </div>
+        <div>
+          <h3><a href="https://open.spotify.com/episode/0ediaQFzhqK6ASaOe033f7">Marketing analytics in a cookieless world</a></h3>
+          <p class="desc">Measuring marketing as tracking disappears: combining incrementality testing and MMM, focusing on lifetime value, and where AI fits in analytics.</p>
+        </div>
+      </li>
+    </ol>
+  </div>
+</section>
+
+<section class="dark">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Topics</p>
+      <h2>What I speak about.</h2>
+    </div>
+    <div class="work-list">
+      <div class="work-item">
+        <h3>Getting the CMO and CFO to the same number</h3>
+        <p>How to present brand like any other investment, link awareness to acquisition and lifetime value, and give finance a forecast they can hold you to.</p>
+      </div>
+      <div class="work-item">
+        <h3>Build or buy your MMM</h3>
+        <p>What it takes to build a marketing mix model in-house now that AI tools make it possible, and when a managed platform is still the better call.</p>
+      </div>
+      <div class="work-item">
+        <h3>MMM, incrementality, and attribution together</h3>
+        <p>Why no single method is enough, and how to use experiments to calibrate models so the whole team trusts the results.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="light" id="bios">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">For organizers</p>
+      <h2>Speaker bios.</h2>
+    </div>
+    <div class="bios">
+      <div class="bio short">
+        <h3>Short</h3>
+        <p>Chelsea Cramer is the founder of Base Note Data, a marketing measurement consultancy working with high-growth brands like Robinhood, Talkiatry, and Stitch Fix. Before that, she led marketing analytics at Credit Karma and Wellhub, measuring over $1B in spend over her career.</p>
+      </div>
+      <div class="bio long">
+        <h3>Long</h3>
+        <p>Chelsea Cramer is the founder of Base Note Data, a marketing measurement consultancy that helps CMOs and CFOs settle the question every budget meeting comes back to: what is marketing actually driving? She works with high-growth brands like Robinhood, Talkiatry, and Stitch Fix on marketing mix modeling, incrementality testing, and causal inference.</p>
+        <p>Over 13+ years in marketing analytics, she has measured more than $1B in spend. At Credit Karma, she built the TV measurement and MMM programs and unified media measurement as budget grew from $100M to $300M with improving ROI. She was also the first marketing analytics hire at Gympass/Wellhub, where she led the function as Director of Marketing Analytics.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="wrap">
+    <p class="eyebrow">Book a talk</p>
+    <h2>Have a stage to fill?</h2>
+    <p class="contact-sub">I do keynotes, panels, podcasts, and internal sessions for marketing and finance teams. Send the date, audience, and format, and I'll get back to you within a few days.</p>
+    <a class="btn" href="mailto:chelsea@basenotedata.com?subject=Speaking%20inquiry">Invite me to speak</a>
+  </div>
+</section>
+
+<footer class="site">
+  <div class="wrap">
+    <span>Base Note Data © 2026</span>
+    <a href="mailto:chelsea@basenotedata.com">basenotedata.com</a>
+  </div>
+</footer>
+</body>
+</html>
