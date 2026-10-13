@@ -591,5 +591,20 @@
   }
 })();
 </script>
+<script>
+// OpenAI Ads conversion: fire "lead_created" when someone clicks a Calendly booking link.
+// Same-tab links wait briefly so the pixel can send before the page navigates; new-tab links go immediately.
+(function(){
+  document.addEventListener('click',function(e){
+    var a=e.target.closest && e.target.closest('a[href*="calendly.com"]');
+    if(!a) return;
+    try{ window.oaiq && oaiq("measure","lead_created",{type:"customer_action"}); }catch(err){}
+    var newTab=a.target==='_blank'||e.metaKey||e.ctrlKey||e.shiftKey||e.button!==0;
+    if(newTab) return;
+    e.preventDefault();
+    setTimeout(function(){ window.location.href=a.href; },400);
+  });
+})();
+</script>
 </body>
 </html>
