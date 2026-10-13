@@ -3,8 +3,14 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Base Note Data | Marketing Measurement Consulting (MMM, Incrementality, Attribution)</title>
-<meta name="description" content="Base Note Data is a Brooklyn-based marketing measurement consultancy founded by Chelsea Cramer. Fractional support for marketing mix modeling, incrementality testing, attribution, and the data engineering behind them.">
+<title>Marketing Measurement & Analytics Consultant | Base Note Data</title>
+<meta name="description" content="Chelsea Cramer is a New York marketing analytics and measurement consultant. Marketing mix modeling (MMM), incrementality testing, geo experiments and attribution from the consultant who built MMM at Credit Karma.">
+<link rel="canonical" href="https://basenotedata.com/">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://basenotedata.com/">
+<meta property="og:title" content="Marketing Measurement & Analytics Consultant | Base Note Data">
+<meta property="og:description" content="Marketing mix modeling, incrementality testing and attribution consulting from Chelsea Cramer, who built MMM and TV measurement at Credit Karma.">
+<meta name="twitter:card" content="summary">
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -14,7 +20,7 @@
       "@id": "https://basenotedata.com/#org",
       "name": "Base Note Data",
       "url": "https://basenotedata.com",
-      "description": "Boutique marketing measurement consultancy specializing in marketing mix modeling (MMM), incrementality testing, geo experiments, multi-touch attribution, and causal inference.",
+      "description": "Marketing analytics and measurement consulting practice run by Chelsea Cramer, specializing in marketing mix modeling (MMM), incrementality testing, geo experiments, multi-touch attribution, and causal inference.",
       "disambiguatingDescription": "Marketing analytics consultancy. Not affiliated with Basenotes, the fragrance community.",
       "founder": { "@id": "https://basenotedata.com/#chelsea" },
       "address": {
@@ -30,17 +36,27 @@
         "Geo experiments",
         "Multi-touch attribution",
         "Causal inference",
-        "Marketing measurement"
+        "Marketing measurement",
+        "Marketing analytics",
+        "Media mix modeling"
       ],
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Marketing measurement consulting",
+        "itemListElement": [
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Marketing mix modeling consulting", "url": "https://basenotedata.com/marketing-mix-modeling" } },
+          { "@type": "Offer", "itemOffered": { "@type": "Service", "name": "Incrementality testing consulting", "url": "https://basenotedata.com/incrementality-testing" } }
+        ]
+      },
       "email": "chelsea@basenotedata.com"
     },
     {
       "@type": "Person",
       "@id": "https://basenotedata.com/#chelsea",
       "name": "Chelsea Cramer",
-      "jobTitle": "Founder",
+      "jobTitle": "Marketing Measurement & Analytics Consultant",
       "worksFor": { "@id": "https://basenotedata.com/#org" },
-      "description": "Marketing measurement consultant with 13+ years in marketing analytics. Previously built TV measurement and MMM programs at Credit Karma and led marketing analytics at Gympass/Wellhub.",
+      "description": "Marketing measurement and analytics consultant with 13+ years in marketing analytics. Built TV measurement and MMM programs at Credit Karma as paid media scaled from $100M to $300M, and was the first marketing analytics hire at Wellhub (Gympass). Consults for brands including Robinhood.",
       "knowsAbout": ["Marketing mix modeling", "Incrementality testing", "Causal inference", "SQL", "R", "Python"],
       "sameAs": ["https://www.linkedin.com/in/chelseacramer"]
     }
@@ -188,6 +204,9 @@
   }
   .work-item h3{font-size:21px;color:var(--parchment-text);}
   .work-item p{color:var(--muted-on-ink);font-size:15px;max-width:52ch;}
+  .work-item h3 a{text-decoration:none;}
+  .work-item h3 a:hover, .work-item h3 a:focus-visible{color:var(--amber);}
+  .work-item p a{color:var(--amber);text-underline-offset:3px;white-space:nowrap;}
 
   /* about */
   section.about{background:var(--parchment);color:var(--ink-text);padding:96px 0;}
@@ -319,9 +338,9 @@
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-      <p class="eyebrow">Marketing measurement · Fractional partner</p>
+      <p class="eyebrow">Marketing analytics &amp; measurement consultant · New York</p>
       <h1>Make marketing performance <em>legible.</em></h1>
-      <p class="hero-sub">I help growth and marketing teams tell the difference between what looks like impact and what is impact — with rigorous MMM, incrementality testing, and attribution built to survive scrutiny.</p>
+      <p class="hero-sub">I'm Chelsea Cramer, an independent marketing measurement consultant. I help growth and marketing teams tell the difference between what looks like impact and what is impact, with marketing mix modeling, incrementality testing and attribution built to survive a CFO's scrutiny.</p>
       <a class="btn" href="#contact">Start a conversation</a>
     </div>
     <div class="pyramid-figure">
@@ -370,16 +389,16 @@
   <div class="wrap">
     <div class="section-head">
       <p class="eyebrow">The work</p>
-      <h2>A fractional measurement partner.</h2>
+      <h2>Marketing measurement consulting, done hands-on.</h2>
     </div>
     <div class="work-list">
       <div class="work-item">
-        <h3>Marketing mix modeling</h3>
-        <p>Build the model that separates channel effect from seasonality, macro noise, and everything else competing for credit.</p>
+        <h3><a href="/marketing-mix-modeling">Marketing mix modeling</a></h3>
+        <p>Build the marketing mix model (also called media mix modeling, or MMM) that separates channel effect from seasonality, macro noise, and everything else competing for credit. <a href="/marketing-mix-modeling">How I approach MMM</a></p>
       </div>
       <div class="work-item">
-        <h3>Incrementality testing</h3>
-        <p>Geo-lift, holdout, and synthetic control designs that show what actually happens when a channel goes dark.</p>
+        <h3><a href="/incrementality-testing">Incrementality testing</a></h3>
+        <p>Geo-lift, holdout, and synthetic control designs that show what actually happens when a channel goes dark. <a href="/incrementality-testing">How I run incrementality tests</a></p>
       </div>
       <div class="work-item">
         <h3>Multi-touch attribution</h3>
@@ -397,14 +416,15 @@
   <div class="wrap about-grid">
     <div>
       <p class="eyebrow">About</p>
-      <h2>Chelsea Cramer, founder</h2>
+      <h2>Chelsea Cramer, marketing measurement consultant</h2>
     </div>
     <div>
-      <p>Base Note Data is a solo consultancy built on 13+ years inside marketing measurement and analytics — spanning fintech, health and wellness, and B2B.</p>
-      <p>Prior work includes leading TV measurement and marketing mix modeling at Credit Karma, and building enterprise marketing analytics at Gympass. Now working fractionally with teams who need the same rigor without the full-time headcount.</p>
+      <p>I'm an independent marketing analytics consultant with 13+ years inside marketing measurement, spanning fintech, health and wellness, and B2B. Base Note Data is my practice. You work directly with me, not a junior team.</p>
+      <p>At Credit Karma, I built the TV measurement and marketing mix modeling programs and unified media measurement as paid media scaled from $100M to $300M, while ROI went up. At Wellhub (Gympass), I was the first marketing analytics hire and built the function across 14 markets. Today I consult for brands including Robinhood, working fractionally with teams who need that rigor without the full-time headcount.</p>
       <div class="credentials">
         <span>Credit Karma</span>
-        <span>Gympass</span>
+        <span>Wellhub</span>
+        <span>Robinhood</span>
         <span>Fintech</span>
         <span>Health &amp; wellness</span>
         <span>B2B</span>

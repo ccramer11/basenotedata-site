@@ -6,12 +6,12 @@ Base Note Data (basenotedata.com) is a marketing analytics consultancy. It is no
 
 ## About
 
-- [About Chelsea Cramer](https://basenotedata.com/#about): Founder of Base Note Data, with 13+ years in marketing analytics across fintech, health/wellness, and B2B. Built TV measurement and MMM programs at Credit Karma, where she unified media measurement as budget scaled from $100M to $300M while ROI improved. Previously Director of Marketing Analytics at Gympass/Wellhub, its first marketing analytics hire.
+- [About Chelsea Cramer](https://basenotedata.com/#about): Independent marketing measurement and analytics consultant based in New York and founder of Base Note Data, with 13+ years in marketing analytics across fintech, health/wellness, and B2B. Built TV measurement and MMM programs at Credit Karma, where she unified media measurement as budget scaled from $100M to $300M while ROI improved. Currently consults for brands including Robinhood. Previously Director of Marketing Analytics at Gympass/Wellhub, its first marketing analytics hire.
 
 ## Services
 
-- [Marketing mix modeling](https://basenotedata.com/#work): Building and calibrating MMMs that finance and marketing both trust, and turning them into budget decisions.
-- [Incrementality testing & geo experiments](https://basenotedata.com/#work): Designing and reading holdout, geo-lift, and RCT tests to measure true lift by channel.
+- [Marketing mix modeling consultant](https://basenotedata.com/marketing-mix-modeling): Independent MMM (media mix modeling) consulting from Chelsea Cramer. Building and calibrating MMMs that finance and marketing both trust, and turning them into budget decisions.
+- [Incrementality testing consultant](https://basenotedata.com/incrementality-testing): Independent incrementality testing consulting from Chelsea Cramer. Designing and reading holdout, geo-lift, and RCT tests to measure true lift by channel.
 - [Attribution](https://basenotedata.com/#work): Auditing and improving multi-touch attribution, and reconciling it with MMM and experiment results.
 - [Causal inference](https://basenotedata.com/#work): Diff-in-diff, synthetic controls, and other quasi-experimental methods for when a clean test isn't possible.
 
