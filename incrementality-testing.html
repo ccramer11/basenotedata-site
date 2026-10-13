@@ -287,7 +287,7 @@
 </footer>
 <script>
 // Conversions on Calendly booking clicks: OpenAI Ads (lead_created), GA4 (book_call_click),
-// and Google Ads (manual_event_PAGE_VIEW). Same-tab links navigate once the Google event confirms,
+// and Google Ads (manual_event_SUBMIT_LEAD_FORM). Same-tab links navigate once the Google event confirms,
 // or after 2s at most; new-tab links open immediately.
 (function(){
   document.addEventListener('click',function(e){
@@ -298,7 +298,7 @@
     try{ window.oaiq && oaiq("measure","lead_created",{type:"customer_action"}); }catch(err){}
     try{ window.gtag && gtag('event','book_call_click',{link_url:a.href,transport_type:'beacon'}); }catch(err){}
     try{
-      if(window.gtag){ gtag('event','manual_event_PAGE_VIEW',{event_callback:go,event_timeout:2000}); }
+      if(window.gtag){ gtag('event','manual_event_SUBMIT_LEAD_FORM',{event_callback:go,event_timeout:2000}); }
     }catch(err){}
     if(newTab) return;
     e.preventDefault();
