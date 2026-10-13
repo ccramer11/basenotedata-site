@@ -3,6 +3,15 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HW2QJXRY8R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HW2QJXRY8R');
+</script>
 <!-- OpenAI Ads pixel -->
 <script>!function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var j=d.createElement(s);j.async=1;j.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(j,f)}(window,document,"script","https://bzrcdn.openai.com/sdk/oaiq.min.js");oaiq("init",{pixelId:"BuxGoafLuuGRbvpjdumR95",debug:true});</script>
 <title>Marketing Measurement & Analytics Consultant | Base Note Data</title>
@@ -489,6 +498,7 @@
     e.preventDefault();
     form.dataset.tracked='1';
     try{ window.oaiq && oaiq("measure","appointment_scheduled",{type:"customer_action"}); }catch(err){}
+    try{ window.gtag && gtag('event','generate_lead',{method:'contact_form',transport_type:'beacon'}); }catch(err){}
     setTimeout(function(){ form.submit(); },400);
   });
 })();
