@@ -286,18 +286,23 @@
   </div>
 </footer>
 <script>
-// OpenAI Ads conversion: fire "lead_created" when someone clicks a Calendly booking link.
-// Same-tab links wait briefly so the pixel can send before the page navigates; new-tab links go immediately.
+// Conversions on Calendly booking clicks: OpenAI Ads (lead_created), GA4 (book_call_click),
+// and Google Ads (manual_event_PAGE_VIEW). Same-tab links navigate once the Google event confirms,
+// or after 2s at most; new-tab links open immediately.
 (function(){
   document.addEventListener('click',function(e){
     var a=e.target.closest && e.target.closest('a[href*="calendly.com"]');
     if(!a) return;
+    var newTab=a.target==='_blank'||e.metaKey||e.ctrlKey||e.shiftKey||e.button!==0;
+    var done=false, go=function(){ if(done||newTab) return; done=true; window.location.href=a.href; };
     try{ window.oaiq && oaiq("measure","lead_created",{type:"customer_action"}); }catch(err){}
     try{ window.gtag && gtag('event','book_call_click',{link_url:a.href,transport_type:'beacon'}); }catch(err){}
-    var newTab=a.target==='_blank'||e.metaKey||e.ctrlKey||e.shiftKey||e.button!==0;
+    try{
+      if(window.gtag){ gtag('event','manual_event_PAGE_VIEW',{event_callback:go,event_timeout:2000}); }
+    }catch(err){}
     if(newTab) return;
     e.preventDefault();
-    setTimeout(function(){ window.location.href=a.href; },400);
+    setTimeout(go, window.gtag ? 2200 : 0);
   });
 })();
 </script>

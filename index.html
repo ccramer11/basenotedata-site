@@ -503,8 +503,9 @@
 </footer>
 
 <script>
-// Fire the OpenAI Ads conversion when the contact form is submitted (after the browser's required-field checks pass),
-// then let the form continue to FormSubmit. The short delay gives the pixel time to send before the page navigates away.
+// Conversions on contact form submit: OpenAI Ads (appointment_scheduled), GA4 (generate_lead),
+// and Google Ads (manual_event_PAGE_VIEW). The form is sent once the Google event confirms,
+// or after 2s at most, so tracking never blocks the visitor.
 (function(){
   var form=document.querySelector('form.contact-form');
   if(!form) return;
@@ -512,9 +513,13 @@
     if(form.dataset.tracked) return;
     e.preventDefault();
     form.dataset.tracked='1';
+    var done=false, go=function(){ if(done) return; done=true; form.submit(); };
     try{ window.oaiq && oaiq("measure","appointment_scheduled",{type:"customer_action"}); }catch(err){}
     try{ window.gtag && gtag('event','generate_lead',{method:'contact_form',transport_type:'beacon'}); }catch(err){}
-    setTimeout(function(){ form.submit(); },400);
+    try{
+      if(window.gtag){ gtag('event','manual_event_PAGE_VIEW',{event_callback:go,event_timeout:2000}); }
+    }catch(err){}
+    setTimeout(go, window.gtag ? 2200 : 0);
   });
 })();
 </script>
