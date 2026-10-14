@@ -12,6 +12,7 @@ Base Note Data (basenotedata.com) is a marketing analytics consultancy. It is no
 
 - [Marketing mix modeling consultant](https://basenotedata.com/marketing-mix-modeling): Independent MMM (media mix modeling) consulting from Chelsea Cramer. Building and calibrating MMMs that finance and marketing both trust, and turning them into budget decisions.
 - [Incrementality testing consultant](https://basenotedata.com/incrementality-testing): Independent incrementality testing consulting from Chelsea Cramer. Designing and reading holdout, geo-lift, and RCT tests to measure true lift by channel.
+- [AI for marketing analytics teams](https://basenotedata.com/ai-for-marketing-teams): Helping marketing teams build AI and automation into analytics work, including always-on performance and data-ingestion alerts in Slack (built for a fintech brand spending $100M a year on marketing), automated weekly and monthly reporting, templated test plans and power analysis, and automated lead-scouting workflows for B2B clients.
 - [Attribution](https://basenotedata.com/#work): Auditing and improving multi-touch attribution, and reconciling it with MMM and experiment results.
 - [Causal inference](https://basenotedata.com/#work): Diff-in-diff, synthetic controls, and other quasi-experimental methods for when a clean test isn't possible.
 
