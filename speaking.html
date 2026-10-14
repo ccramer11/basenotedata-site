@@ -141,6 +141,12 @@
   footer.site a{text-decoration:none;color:var(--muted-on-ink);}
   footer.site a:hover, footer.site a:focus-visible{color:var(--amber);}
 
+  .hero-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:56px;align-items:center;}
+  .hero-grid > div{min-width:0;}
+  .hero-photo{margin:0;}
+  .hero-photo img{display:block;width:100%;height:auto;border-radius:2px;}
+  .hero-photo figcaption{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted-on-ink);margin-top:12px;}
+  @media (max-width:860px){ .hero-grid{grid-template-columns:1fr;gap:36px;} }
   @media (max-width:860px){
     section.hero h1{font-size:38px;}
     section.hero{padding:56px 0 64px;}
@@ -167,11 +173,17 @@
 </header>
 
 <section class="hero">
-  <div class="wrap">
+  <div class="wrap hero-grid">
+    <div>
     <p class="eyebrow">Speaking</p>
     <h1>Talks on proving what marketing actually drives.</h1>
     <p class="hero-sub">Chelsea Cramer, founder of Base Note Data, speaks about marketing measurement in terms both marketers and finance can use: marketing mix modeling, incrementality testing, and how to get a CMO and a CFO to agree on the same number.</p>
     <a class="btn" href="mailto:chelsea@basenotedata.com?subject=Speaking%20inquiry">Invite me to speak</a>
+    </div>
+    <figure class="hero-photo">
+      <img src="/images/advertising-week-2026-panel.jpg" width="976" height="592" alt="Chelsea Cramer speaking on a panel on the Podcast Stage at Advertising Week New York 2026">
+      <figcaption>On the Podcast Stage at Advertising Week New York, October 2026</figcaption>
+    </figure>
   </div>
 </section>
 
