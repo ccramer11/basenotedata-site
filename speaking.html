@@ -14,8 +14,8 @@
 </script>
 <!-- OpenAI Ads pixel -->
 <script>!function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var j=d.createElement(s);j.async=1;j.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(j,f)}(window,document,"script","https://bzrcdn.openai.com/sdk/oaiq.min.js");oaiq("init",{pixelId:"BuxGoafLuuGRbvpjdumR95",debug:true});</script>
-<title>Speaking | Chelsea Cramer, Base Note Data</title>
-<meta name="description" content="Chelsea Cramer, founder of Base Note Data, speaks on marketing measurement: MMM, incrementality testing, and aligning brand investment with what CMOs and CFOs need. Past talks include Advertising Week New York.">
+<title>Speaking &amp; Analyst Training | Chelsea Cramer, New York</title>
+<meta name="description" content="New York City-based speaker and trainer Chelsea Cramer talks marketing measurement (MMM, incrementality testing, CMO/CFO alignment) and runs data presentation workshops for agency and in-house analyst teams. Past talks include Advertising Week New York.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -30,7 +30,8 @@
       "jobTitle": "Founder",
       "worksFor": { "@id": "https://basenotedata.com/#org" },
       "description": "Marketing measurement consultant and speaker. Founder of Base Note Data; previously led marketing analytics at Credit Karma and Wellhub.",
-      "knowsAbout": ["Marketing mix modeling", "Incrementality testing", "Brand measurement", "Marketing attribution", "Causal inference"],
+      "homeLocation": { "@type": "Place", "name": "New York, NY", "address": { "@type": "PostalAddress", "addressLocality": "New York", "addressRegion": "NY", "addressCountry": "US" } },
+      "knowsAbout": ["Marketing mix modeling", "Incrementality testing", "Brand measurement", "Marketing attribution", "Causal inference", "Data storytelling", "Presenting data to executives"],
       "sameAs": ["https://www.linkedin.com/in/chelseacramer"],
       "subjectOf": { "@id": "https://open.spotify.com/episode/0ediaQFzhqK6ASaOe033f7" }
     },
@@ -54,6 +55,15 @@
         { "@type": "Person", "name": "Valerie Nguyen" },
         { "@type": "Person", "name": "Ann Marie Kerwin" }
       ]
+    },
+    {
+      "@type": "Service",
+      "name": "Data presentation training for analysts",
+      "serviceType": "Analyst training workshop",
+      "description": "Workshops that teach agency and in-house analysts to present data clearly to clients and executives: leading with the answer, building charts that make one point, and tailoring the story to the room.",
+      "provider": { "@id": "https://basenotedata.com/#chelsea" },
+      "areaServed": [{ "@type": "City", "name": "New York City" }, { "@type": "Place", "name": "Virtual" }],
+      "url": "https://basenotedata.com/speaking#training"
     },
     {
       "@type": "PodcastEpisode",
@@ -132,6 +142,21 @@
   .bio h3{font-size:19px;margin-bottom:12px;color:var(--ink-text);}
   .bio p{font-size:15px;color:var(--muted-on-parchment);margin-bottom:14px;}
 
+  section.light.soft{background:var(--parchment-soft);}
+  .btn.ghost{background:transparent;color:var(--amber);margin-left:12px;}
+  .btn.ghost:hover, .btn.ghost:focus-visible{background:var(--amber);color:var(--ink);}
+  .section-head .lead{font-size:17px;color:var(--muted-on-parchment);margin-top:18px;}
+  .learn{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;column-gap:48px;border-top:1px solid var(--hairline-parchment);}
+  .learn li{padding:26px 0;border-bottom:1px solid var(--hairline-parchment);}
+  .learn h3{font-size:19px;line-height:1.3;color:var(--ink-text);margin-bottom:8px;}
+  .learn p{font-size:15px;color:var(--muted-on-parchment);}
+  .formats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px;}
+  .format{background:var(--parchment-soft);border-top:2px solid var(--clay);padding:24px 24px 26px;}
+  .format .len{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--clay);display:block;margin-bottom:10px;}
+  .format h3{font-size:19px;color:var(--ink-text);margin-bottom:8px;}
+  .format p{font-size:15px;color:var(--muted-on-parchment);}
+  .training-cta{margin-top:48px;display:flex;align-items:center;gap:28px;flex-wrap:wrap;}
+  .training-cta p{font-size:15px;color:var(--muted-on-parchment);max-width:46ch;}
   section.contact{padding:96px 0 100px;}
   section.contact h2{font-size:34px;margin:14px 0 18px;}
   .contact-sub{color:var(--muted-on-ink);max-width:46ch;margin-bottom:30px;}
@@ -153,6 +178,9 @@
     section.light, section.dark, section.contact{padding:64px 0;}
     .talk, .work-item{grid-template-columns:1fr;gap:10px;}
     .bios{grid-template-columns:1fr;gap:32px;}
+    .learn, .formats{grid-template-columns:1fr;}
+    .learn{column-gap:0;}
+    .btn.ghost{margin-left:0;margin-top:12px;}
     nav.links{display:none;}
   }
 </style>
@@ -175,10 +203,10 @@
 <section class="hero">
   <div class="wrap hero-grid">
     <div>
-    <p class="eyebrow">Speaking</p>
+    <p class="eyebrow">Speaking &amp; training · New York City</p>
     <h1>Talks on proving what marketing actually drives.</h1>
-    <p class="hero-sub">Chelsea Cramer, founder of Base Note Data, speaks about marketing measurement in terms both marketers and finance can use: marketing mix modeling, incrementality testing, and how to get a CMO and a CFO to agree on the same number.</p>
-    <a class="btn" href="mailto:chelsea@basenotedata.com?subject=Speaking%20inquiry">Invite me to speak</a>
+    <p class="hero-sub">Chelsea Cramer is a New York City-based measurement consultant and the founder of Base Note Data. She speaks about marketing measurement in terms both marketers and finance can use, and trains agency and in-house analysts to present data that people act on.</p>
+    <a class="btn" href="mailto:chelsea@basenotedata.com?subject=Speaking%20inquiry">Invite me to speak</a><a class="btn ghost" href="#training">Analyst training</a>
     </div>
     <figure class="hero-photo">
       <img src="/images/advertising-week-2026-panel.jpg" width="976" height="592" alt="Chelsea Cramer speaking on a panel on the Podcast Stage at Advertising Week New York 2026">
@@ -251,7 +279,56 @@
   </div>
 </section>
 
-<section class="light" id="bios">
+<section class="light" id="training">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Analyst training</p>
+      <h2>Teach your analysts to present data people act on.</h2>
+      <p class="lead">Most analysts are great at getting the numbers right and never get taught how to present them. I run hands-on workshops for agency and in-house analytics teams on turning analysis into a clear story for clients, CMOs, and CFOs. I started my career on the agency side and have spent 13+ years presenting to executives, so the material comes from real client meetings and budget reviews.</p>
+    </div>
+    <ul class="learn">
+      <li>
+        <h3>Lead with the answer</h3>
+        <p>Open with the "so what" and the recommendation, not the methodology, and keep the detail in the appendix for when someone asks.</p>
+      </li>
+      <li>
+        <h3>One chart, one point</h3>
+        <p>Pick the right chart, cut the clutter, and write titles that say what the data means instead of what it shows.</p>
+      </li>
+      <li>
+        <h3>Know who's in the room</h3>
+        <p>Tailor the same analysis for a client, a CMO, and a CFO, and translate marketing metrics into the numbers finance plans around.</p>
+      </li>
+      <li>
+        <h3>Handle pushback and uncertainty</h3>
+        <p>Explain confidence intervals and test results without losing the room, and answer the hard questions with confidence.</p>
+      </li>
+    </ul>
+    <div class="formats">
+      <div class="format">
+        <span class="len">2 hours</span>
+        <h3>Team workshop</h3>
+        <p>The core framework with before-and-after examples. A good fit for a lunch-and-learn or team offsite.</p>
+      </div>
+      <div class="format">
+        <span class="len">Half day</span>
+        <h3>Hands-on session</h3>
+        <p>Analysts bring a real deck and rework it in the session with live feedback.</p>
+      </div>
+      <div class="format">
+        <span class="len">Ongoing</span>
+        <h3>Deck reviews and coaching</h3>
+        <p>Regular reviews of client-facing work before it goes out, so the skills stick.</p>
+      </div>
+    </div>
+    <div class="training-cta">
+      <a class="btn" href="mailto:chelsea@basenotedata.com?subject=Analyst%20training%20inquiry">Book a training</a>
+      <p>Based in New York City, so in-person sessions at your office are easy. Virtual sessions available anywhere.</p>
+    </div>
+  </div>
+</section>
+
+<section class="light soft" id="bios">
   <div class="wrap">
     <div class="section-head">
       <p class="eyebrow">For organizers</p>
@@ -260,11 +337,11 @@
     <div class="bios">
       <div class="bio short">
         <h3>Short</h3>
-        <p>Chelsea Cramer is the founder of Base Note Data, a marketing measurement consultancy working with high-growth brands like Robinhood, Talkiatry, and Stitch Fix. Before that, she led marketing analytics at Credit Karma and Wellhub, measuring over $1B in spend over her career.</p>
+        <p>Chelsea Cramer is the New York City-based founder of Base Note Data, a marketing measurement consultancy working with high-growth brands like Robinhood, Talkiatry, and Stitch Fix. Before that, she led marketing analytics at Credit Karma and Wellhub, measuring over $1B in spend over her career.</p>
       </div>
       <div class="bio long">
         <h3>Long</h3>
-        <p>Chelsea Cramer is the founder of Base Note Data, a marketing measurement consultancy that helps CMOs and CFOs settle the question every budget meeting comes back to: what is marketing actually driving? She works with high-growth brands like Robinhood, Talkiatry, and Stitch Fix on marketing mix modeling, incrementality testing, and causal inference.</p>
+        <p>Chelsea Cramer is the New York City-based founder of Base Note Data, a marketing measurement consultancy that helps CMOs and CFOs settle the question every budget meeting comes back to: what is marketing actually driving? She works with high-growth brands like Robinhood, Talkiatry, and Stitch Fix on marketing mix modeling, incrementality testing, and causal inference.</p>
         <p>Over 13+ years in marketing analytics, she has measured more than $1B in spend. At Credit Karma, she built the TV measurement and MMM programs and unified media measurement as budget grew from $100M to $300M with improving ROI. She was also the first marketing analytics hire at Gympass/Wellhub, where she led the function as Director of Marketing Analytics.</p>
       </div>
     </div>
@@ -274,8 +351,8 @@
 <section class="contact">
   <div class="wrap">
     <p class="eyebrow">Book a talk</p>
-    <h2>Have a stage to fill?</h2>
-    <p class="contact-sub">I do keynotes, panels, podcasts, and internal sessions for marketing and finance teams. Send the date, audience, and format, and I'll get back to you within a few days.</p>
+    <h2>Have a stage to fill or a team to train?</h2>
+    <p class="contact-sub">I do keynotes, panels, podcasts, and analyst training for agencies and in-house teams. I'm based in New York City and happy to come to you, or join virtually. Send the date, audience, and format, and I'll get back to you within a few days.</p>
     <a class="btn" href="mailto:chelsea@basenotedata.com?subject=Speaking%20inquiry">Invite me to speak</a>
   </div>
 </section>

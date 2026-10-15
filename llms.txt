@@ -19,6 +19,7 @@ Base Note Data (basenotedata.com) is a marketing analytics consultancy. It is no
 ## Speaking
 
 - [Speaking](https://basenotedata.com/speaking): Chelsea Cramer's talks and podcast appearances on marketing measurement, including "Can you build your own MMM?" at Advertising Week New York (Oct 2026), "Align brand investment with executive priorities" at BERA.ai Measurement Playbook Day (Sep 2026), and the Growth Talks podcast by Right Side Up (Jul 2024).
+- [Analyst training](https://basenotedata.com/speaking#training): Data presentation workshops from New York City-based Chelsea Cramer for agency and in-house analyst teams, covering leading with the answer, one-point charts, tailoring a story to clients, CMOs and CFOs, and handling pushback. Formats: 2-hour team workshop, half-day hands-on deck session, and ongoing deck reviews. In person in New York City or virtual.
 
 ## Tools
 
