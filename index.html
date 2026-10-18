@@ -169,6 +169,15 @@
   .btn:hover, .btn:focus-visible{background:transparent;color:var(--amber);}
   .btn.ghost{background:transparent;color:var(--parchment-text);border-color:var(--hairline-ink);}
   .btn.ghost:hover, .btn.ghost:focus-visible{border-color:var(--amber);color:var(--amber);}
+  .hero-result{font-size:15px;color:var(--muted-on-ink);max-width:46ch;margin:-14px 0 32px;padding-left:14px;border-left:2px solid var(--amber);}
+  .hero-result strong{font-family:'Fraunces',serif;font-weight:500;font-size:20px;color:var(--parchment-text);margin-right:4px;}
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:12px;}
+  .work-item .answer{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.1em;text-transform:uppercase;color:var(--amber);display:block;margin-top:10px;}
+  .work-item h3 a{text-decoration:none;}
+  .start-here{margin-top:40px;display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:20px;padding:28px 32px;background:var(--ink-soft);border:1px solid var(--hairline-ink);border-radius:2px;}
+  .start-here p{color:var(--muted-on-ink);max-width:58ch;font-size:15px;}
+  .start-here p strong{color:var(--parchment-text);font-weight:600;}
+  .contact-ctas{margin-top:28px;display:flex;flex-direction:column;align-items:flex-start;gap:18px;}
 
   /* pyramid */
   .pyramid-figure{display:flex;flex-direction:column;align-items:center;}
@@ -220,7 +229,6 @@
   }
   .work-item h3{font-size:21px;color:var(--parchment-text);}
   .work-item p{color:var(--muted-on-ink);font-size:15px;max-width:52ch;}
-  .work-item h3 a{text-decoration:none;}
   .work-item h3 a:hover, .work-item h3 a:focus-visible{color:var(--amber);}
   .work-item p a{color:var(--amber);text-underline-offset:3px;white-space:nowrap;}
 
@@ -357,9 +365,13 @@
   <div class="wrap hero-grid">
     <div>
       <p class="eyebrow">Marketing analytics &amp; measurement consultant · New York City</p>
-      <h1>Make marketing performance <em>legible.</em></h1>
-      <p class="hero-sub">I'm Chelsea Cramer, an independent marketing measurement consultant. I help growth and marketing teams tell the difference between what looks like impact and what is impact, with marketing mix modeling, incrementality testing and attribution built to survive a CFO's scrutiny.</p>
-      <a class="btn" href="#contact">Start a conversation</a>
+      <h1>Know which marketing dollars are <em>actually working.</em></h1>
+      <p class="hero-sub">I'm Chelsea Cramer, an independent marketing measurement consultant. I help heads of growth and marketing separate what looks like impact from what is impact, and decide where the next dollar should go, with measurement built to survive a CFO's scrutiny.</p>
+      <p class="hero-result"><strong>$100M → $300M</strong> in paid media at Credit Karma, with ROI going up, measured by the MMM and testing programs I built.</p>
+      <div class="hero-ctas">
+        <a class="btn" href="https://calendly.com/chelsea-basenotedata/30min">Book a 30-min call</a>
+        <a class="btn ghost" href="/best-in-class-quiz">Take the measurement quiz</a>
+      </div>
       <div class="proof" aria-label="Companies Chelsea has done measurement work for">
         <p class="eyebrow">Measurement work for</p>
         <ul>
@@ -383,6 +395,62 @@
         <text x="150" y="225" text-anchor="middle" font-family="IBM Plex Mono, monospace" font-size="11" letter-spacing="1" fill="#F3E6DE">BASE</text>
       </svg>
       <p class="pyramid-caption">what fades first, and what's still there when the deal closes</p>
+    </div>
+  </div>
+</section>
+
+<section class="about" id="about">
+  <div class="wrap about-grid">
+    <div>
+      <p class="eyebrow">About</p>
+      <h2>Chelsea Cramer, marketing measurement consultant</h2>
+    </div>
+    <div>
+      <p>I'm an independent marketing analytics consultant with 13+ years inside marketing measurement, spanning fintech, health and wellness, and B2B. Base Note Data is my practice. You work directly with me, not a junior team.</p>
+      <p>At Credit Karma, I built the TV measurement and marketing mix modeling programs and unified media measurement as paid media scaled from $100M to $300M, while ROI went up. At Wellhub (Gympass), I was the first marketing analytics hire and built the function across 14 markets. Today I consult for brands including Robinhood, working fractionally with teams who need that rigor without the full-time headcount.</p>
+      <div class="credentials">
+        <span>Credit Karma</span>
+        <span>Wellhub</span>
+        <span>Robinhood</span>
+        <span>Fintech</span>
+        <span>Health &amp; wellness</span>
+        <span>B2B</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="work" id="work">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">What growth teams bring me</p>
+      <h2>The questions behind every budget meeting.</h2>
+    </div>
+    <div class="work-list">
+      <div class="work-item">
+        <div><h3><a href="/marketing-mix-modeling">Which channels are actually driving growth?</a></h3><span class="answer">Marketing mix modeling</span></div>
+        <p>A marketing mix model (MMM) that separates each channel's real effect from seasonality, macro noise and everything else competing for credit, and turns it into a budget plan finance will sign off on. <a href="/marketing-mix-modeling">How I approach MMM</a></p>
+      </div>
+      <div class="work-item">
+        <div><h3><a href="/incrementality-testing">What happens if we cut this channel?</a></h3><span class="answer">Incrementality testing</span></div>
+        <p>Geo-lift, holdout and synthetic control tests that show what actually changes when spend goes dark, so you know before you move real money. <a href="/incrementality-testing">How I run incrementality tests</a></p>
+      </div>
+      <div class="work-item">
+        <div><h3>Is our attribution over-crediting some channels?</h3><span class="answer">Attribution</span></div>
+        <p>An honest look at what your attribution and platform reporting are getting wrong, reconciled with test and model results so everyone works from one set of numbers.</p>
+      </div>
+      <div class="work-item">
+        <div><h3><a href="/ai-marketing-consultant">Why does reporting eat so much of my team's week?</a></h3><span class="answer">AI for marketing teams</span></div>
+        <p>Always-on alerts, automated reporting and templated test plans, so problems get caught the day they happen and analysts spend their time on insight. <a href="/ai-marketing-consultant">How I help teams move faster</a></p>
+      </div>
+      <div class="work-item">
+        <div><h3>Can we trust the data underneath it all?</h3><span class="answer">Measurement data engineering</span></div>
+        <p>The pipelines that feed your models and reports, built to be reliable enough to run every quarter without a fire drill.</p>
+      </div>
+    </div>
+    <div class="start-here">
+      <p><strong>Not sure where to start?</strong> Most teams begin with a Measurement Audit: 2–3 weeks, a fixed $12,000, and a prioritized roadmap of what to fix first.</p>
+      <a class="btn ghost" href="/services">See services &amp; pricing</a>
     </div>
   </div>
 </section>
@@ -413,65 +481,16 @@
   </div>
 </section>
 
-<section class="work" id="work">
-  <div class="wrap">
-    <div class="section-head">
-      <p class="eyebrow">The work</p>
-      <h2>Marketing measurement consulting, done hands-on.</h2>
-    </div>
-    <div class="work-list">
-      <div class="work-item">
-        <h3><a href="/marketing-mix-modeling">Marketing mix modeling</a></h3>
-        <p>Build the marketing mix model (also called media mix modeling, or MMM) that separates channel effect from seasonality, macro noise, and everything else competing for credit. <a href="/marketing-mix-modeling">How I approach MMM</a></p>
-      </div>
-      <div class="work-item">
-        <h3><a href="/incrementality-testing">Incrementality testing</a></h3>
-        <p>Geo-lift, holdout, and synthetic control designs that show what actually happens when a channel goes dark. <a href="/incrementality-testing">How I run incrementality tests</a></p>
-      </div>
-      <div class="work-item">
-        <h3>Multi-touch attribution</h3>
-        <p>Attribution built to reflect how customers actually move — not just which touch happened last.</p>
-      </div>
-      <div class="work-item">
-        <h3><a href="/ai-marketing-consultant">AI for marketing teams</a></h3>
-        <p>Always-on alerts, automated reporting and templated test plans that help marketing teams catch problems sooner and spend their time on insight. <a href="/ai-marketing-consultant">How I help teams move faster</a></p>
-      </div>
-      <div class="work-item">
-        <h3>Measurement data engineering</h3>
-        <p>The pipelines and infrastructure that make the above possible, and reliable enough to run every quarter.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section class="about" id="about">
-  <div class="wrap about-grid">
-    <div>
-      <p class="eyebrow">About</p>
-      <h2>Chelsea Cramer, marketing measurement consultant</h2>
-    </div>
-    <div>
-      <p>I'm an independent marketing analytics consultant with 13+ years inside marketing measurement, spanning fintech, health and wellness, and B2B. Base Note Data is my practice. You work directly with me, not a junior team.</p>
-      <p>At Credit Karma, I built the TV measurement and marketing mix modeling programs and unified media measurement as paid media scaled from $100M to $300M, while ROI went up. At Wellhub (Gympass), I was the first marketing analytics hire and built the function across 14 markets. Today I consult for brands including Robinhood, working fractionally with teams who need that rigor without the full-time headcount.</p>
-      <div class="credentials">
-        <span>Credit Karma</span>
-        <span>Wellhub</span>
-        <span>Robinhood</span>
-        <span>Fintech</span>
-        <span>Health &amp; wellness</span>
-        <span>B2B</span>
-      </div>
-    </div>
-  </div>
-</section>
-
 <section class="contact" id="contact">
   <div class="wrap contact-grid">
     <div>
       <p class="eyebrow">Get in touch</p>
       <h2>Let's talk.</h2>
-      <p class="contact-sub">Tell me what's not adding up, and I'll tell you honestly whether I can help. I'm based in New York City and happy to meet in person.</p>
-      <a class="direct-email" href="mailto:chelsea@basenotedata.com">chelsea@basenotedata.com</a>
+      <p class="contact-sub">Tell me what's not adding up, and I'll tell you honestly whether I can help. Book a call, or send a note below. I'm based in New York City and happy to meet in person.</p>
+      <div class="contact-ctas">
+        <a class="btn" href="https://calendly.com/chelsea-basenotedata/30min">Book a 30-min call</a>
+        <a class="direct-email" style="margin-top:0" href="mailto:chelsea@basenotedata.com">chelsea@basenotedata.com</a>
+      </div>
     </div>
     <form class="contact-form" action="https://formsubmit.co/chelsea@basenotedata.com" method="POST">
       <input type="hidden" name="_subject" value="New inquiry — Base Note Data">
@@ -525,6 +544,27 @@
     try{
       if(window.gtag){ gtag('event','manual_event_SUBMIT_LEAD_FORM',{event_callback:go,event_timeout:2000}); }
     }catch(err){}
+    setTimeout(go, window.gtag ? 2200 : 0);
+  });
+})();
+</script>
+<script>
+// Conversions on Calendly booking clicks: OpenAI Ads (lead_created), GA4 (book_call_click),
+// and Google Ads (manual_event_SUBMIT_LEAD_FORM). Same-tab links navigate once the Google event confirms,
+// or after 2s at most; new-tab links open immediately.
+(function(){
+  document.addEventListener('click',function(e){
+    var a=e.target.closest && e.target.closest('a[href*="calendly.com"]');
+    if(!a) return;
+    var newTab=a.target==='_blank'||e.metaKey||e.ctrlKey||e.shiftKey||e.button!==0;
+    var done=false, go=function(){ if(done||newTab) return; done=true; window.location.href=a.href; };
+    try{ window.oaiq && oaiq("measure","lead_created",{type:"customer_action"}); }catch(err){}
+    try{ window.gtag && gtag('event','book_call_click',{link_url:a.href,transport_type:'beacon'}); }catch(err){}
+    try{
+      if(window.gtag){ gtag('event','manual_event_SUBMIT_LEAD_FORM',{event_callback:go,event_timeout:2000}); }
+    }catch(err){}
+    if(newTab) return;
+    e.preventDefault();
     setTimeout(go, window.gtag ? 2200 : 0);
   });
 })();
