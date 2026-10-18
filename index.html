@@ -529,7 +529,7 @@
 
 <script>
 // Conversions on contact form submit: OpenAI Ads (appointment_scheduled), GA4 (generate_lead),
-// and Google Ads (manual_event_SUBMIT_LEAD_FORM). The form is sent once the Google event confirms,
+// and Google Ads (conversion_event_submit_lead_form). The form is sent once the Google event confirms,
 // or after 2s at most, so tracking never blocks the visitor.
 (function(){
   var form=document.querySelector('form.contact-form');
@@ -542,7 +542,7 @@
     try{ window.oaiq && oaiq("measure","appointment_scheduled",{type:"customer_action"}); }catch(err){}
     try{ window.gtag && gtag('event','generate_lead',{method:'contact_form',transport_type:'beacon'}); }catch(err){}
     try{
-      if(window.gtag){ gtag('event','manual_event_SUBMIT_LEAD_FORM',{event_callback:go,event_timeout:2000}); }
+      if(window.gtag){ gtag('event','conversion_event_submit_lead_form',{event_callback:go,event_timeout:2000}); }
     }catch(err){}
     setTimeout(go, window.gtag ? 2200 : 0);
   });
@@ -550,7 +550,7 @@
 </script>
 <script>
 // Conversions on Calendly booking clicks: OpenAI Ads (lead_created), GA4 (book_call_click),
-// and Google Ads (manual_event_SUBMIT_LEAD_FORM). Same-tab links navigate once the Google event confirms,
+// and Google Ads (conversion_event_submit_lead_form). Same-tab links navigate once the Google event confirms,
 // or after 2s at most; new-tab links open immediately.
 (function(){
   document.addEventListener('click',function(e){
@@ -561,7 +561,7 @@
     try{ window.oaiq && oaiq("measure","lead_created",{type:"customer_action"}); }catch(err){}
     try{ window.gtag && gtag('event','book_call_click',{link_url:a.href,transport_type:'beacon'}); }catch(err){}
     try{
-      if(window.gtag){ gtag('event','manual_event_SUBMIT_LEAD_FORM',{event_callback:go,event_timeout:2000}); }
+      if(window.gtag){ gtag('event','conversion_event_submit_lead_form',{event_callback:go,event_timeout:2000}); }
     }catch(err){}
     if(newTab) return;
     e.preventDefault();
