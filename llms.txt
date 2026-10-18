@@ -16,6 +16,10 @@ Base Note Data (basenotedata.com) is a marketing analytics consultancy. It is no
 - [Attribution](https://basenotedata.com/#work): Auditing and improving multi-touch attribution, and reconciling it with MMM and experiment results.
 - [Causal inference](https://basenotedata.com/#work): Diff-in-diff, synthetic controls, and other quasi-experimental methods for when a clean test isn't possible.
 
+## Pricing
+
+- [Services and pricing](https://basenotedata.com/services): Measurement consult for agencies and measurement vendors ($500, 1 hour), measurement audit for brands ($12,000, 2–3 weeks), AI audit for marketing teams ($15,000, 3 weeks), fractional measurement lead (from $15,000 a month, 20+ hours a week), and training and speaking (custom).
+
 ## Speaking
 
 - [Speaking](https://basenotedata.com/speaking): Chelsea Cramer's talks and podcast appearances on marketing measurement, including "Can you build your own MMM?" at Advertising Week New York (Oct 2026), "Align brand investment with executive priorities" at BERA.ai Measurement Playbook Day (Sep 2026), and the Growth Talks podcast by Right Side Up (Jul 2024).
