@@ -301,27 +301,7 @@
     <a href="mailto:chelsea@basenotedata.com">basenotedata.com</a>
   </div>
 </footer>
-<script>
-// Conversions on Calendly booking clicks: OpenAI Ads (lead_created), GA4 (book_call_click),
-// and Google Ads (conversion_event_submit_lead_form). Same-tab links navigate once the Google event confirms,
-// or after 2s at most; new-tab links open immediately.
-(function(){
-  document.addEventListener('click',function(e){
-    var a=e.target.closest && e.target.closest('a[href*="calendly.com"]');
-    if(!a) return;
-    var newTab=a.target==='_blank'||e.metaKey||e.ctrlKey||e.shiftKey||e.button!==0;
-    var done=false, go=function(){ if(done||newTab) return; done=true; window.location.href=a.href; };
-    try{ window.oaiq && oaiq("measure","lead_created",{type:"customer_action"}); }catch(err){}
-    try{ window.gtag && gtag('event','book_call_click',{link_url:a.href,transport_type:'beacon'}); }catch(err){}
-    try{
-      if(window.gtag){ gtag('event','conversion_event_submit_lead_form',{event_callback:go,event_timeout:2000}); }
-    }catch(err){}
-    if(newTab) return;
-    e.preventDefault();
-    setTimeout(go, window.gtag ? 2200 : 0);
-  });
-})();
-</script>
+<script src="book-call.js" defer></script>
 <script>
 (function(){
   var h=document.querySelector('header.site'),b=h&&h.querySelector('.menu-toggle');
