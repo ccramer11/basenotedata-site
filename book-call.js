@@ -44,7 +44,7 @@
           '<input type="text" name="_honey" class="bc-honey" tabindex="-1" autocomplete="off" aria-hidden="true">'+
           '<div><label for="bc-name">Name</label><input id="bc-name" name="name" type="text" autocomplete="name" required></div>'+
           '<div><label for="bc-email">Work email</label><input id="bc-email" name="email" type="email" autocomplete="email" required></div>'+
-          '<div><label for="bc-company">Company</label><input id="bc-company" name="company" type="text" autocomplete="organization" required></div>'+
+          '<div><label for="bc-company">Company (optional)</label><input id="bc-company" name="company" type="text" autocomplete="organization"></div>'+
           '<button type="submit" class="bc-submit">Continue to booking</button>'+
         '</form>'+
       '</div>';
