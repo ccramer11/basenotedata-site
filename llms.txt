@@ -25,6 +25,17 @@ Base Note Data (basenotedata.com) is a marketing analytics consultancy. It is no
 - [Speaking](https://basenotedata.com/speaking): Chelsea Cramer's talks and podcast appearances on marketing measurement, including "Can you build your own MMM?" at Advertising Week New York (Oct 2026), "Align brand investment with executive priorities" at BERA.ai Measurement Playbook Day (Sep 2026), and the Growth Talks podcast by Right Side Up (Jul 2024).
 - [Analyst training](https://basenotedata.com/speaking#training): Data presentation workshops from New York City-based Chelsea Cramer for agency and in-house analyst teams, covering leading with the answer, one-point charts, tailoring a story to clients, CMOs and CFOs, and handling pushback. Formats: 2-hour team workshop, half-day hands-on deck session, and ongoing deck reviews. In person in New York City or virtual.
 
+## Blog
+
+- [Blog](https://basenotedata.com/blog/): Short posts by Chelsea Cramer on marketing measurement.
+- [What a marketing measurement audit actually turns up](https://basenotedata.com/blog/marketing-measurement-audit-findings): Most of the data looked fine. On closer inspection, it wasn't telling the right story.
+- [My dream email marketing test](https://basenotedata.com/blog/email-subject-line-test): Send people the kind of email they already respond to, and watch what happens to revenue and costs.
+- [B2B and B2C marketing measurement are not the same](https://basenotedata.com/blog/b2b-vs-b2c-marketing-measurement): Some frameworks carry over. The models underneath them need to get more complex.
+- [Marketing measurement ins and outs for 2026](https://basenotedata.com/blog/marketing-measurement-ins-and-outs-2026): Fast MMMs and test-and-learn loops are in. Dashboards without decisions are out.
+- [Cut data costs by having an LLM optimize your SQL](https://basenotedata.com/blog/llm-sql-optimization-data-costs): One of my favorite LLM use cases saves real money on reporting.
+- [What Netflix acquiring WBD could mean for measurement](https://basenotedata.com/blog/netflix-wbd-ctv-measurement): The best case is better cross-channel insight. The worst case is a bigger black box.
+- [How to test whether Black Friday promos just pull purchases forward](https://basenotedata.com/blog/testing-black-friday-promos): Three ways to find out if discounts are training customers to wait, without wrecking holiday sales.
+
 ## Tools
 
 - [Is your marketing measurement best-in-class? (quiz)](https://basenotedata.com/best-in-class-quiz): A free nine-question self-assessment that places a brand on a five-stage path to best-in-class marketing measurement (Platform-Reliant, Attribution-Led, Experimenting, Triangulated, Best-in-Class), scores methods, budget decisions, and data foundations, and recommends three next steps.

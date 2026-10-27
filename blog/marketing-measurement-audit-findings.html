@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HW2QJXRY8R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HW2QJXRY8R');
+</script>
+<!-- OpenAI Ads pixel -->
+<script>!function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var j=d.createElement(s);j.async=1;j.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(j,f)}(window,document,"script","https://bzrcdn.openai.com/sdk/oaiq.min.js");oaiq("init",{pixelId:"BuxGoafLuuGRbvpjdumR95",debug:true});</script>
+<title>What a marketing measurement audit actually turns up | Chelsea Cramer</title>
+<meta name="description" content="Most of the data looked fine. On closer inspection, it wasn&#x27;t telling the right story.">
+<link rel="canonical" href="https://basenotedata.com/blog/marketing-measurement-audit-findings">
+<meta property="og:title" content="What a marketing measurement audit actually turns up | Chelsea Cramer">
+<meta property="og:description" content="Most of the data looked fine. On closer inspection, it wasn&#x27;t telling the right story.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://basenotedata.com/blog/marketing-measurement-audit-findings">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "What a marketing measurement audit actually turns up",
+  "description": "Most of the data looked fine. On closer inspection, it wasn't telling the right story.",
+  "datePublished": "2026-09-18",
+  "author": {
+    "@type": "Person",
+    "@id": "https://basenotedata.com/#chelsea",
+    "name": "Chelsea Cramer",
+    "url": "https://basenotedata.com/#about",
+    "sameAs": [
+      "https://www.linkedin.com/in/chelseacramer"
+    ]
+  },
+  "publisher": {
+    "@id": "https://basenotedata.com/#org"
+  },
+  "mainEntityOfPage": "https://basenotedata.com/blog/marketing-measurement-audit-findings",
+  "keywords": [
+    "Measurement audit",
+    "Data quality"
+  ]
+}
+</script>
+<style>
+  :root{
+    --ink:#241B24;
+    --ink-soft:#2E222E;
+    --parchment:#F5EAE1;
+    --parchment-soft:#EDDDD1;
+    --clay:#A8536A;
+    --amber:#D3987E;
+    --sage:#8A7484;
+    --ink-text:#2E2230;
+    --parchment-text:#F3E6DE;
+    --muted-on-ink:#A8919E;
+    --muted-on-parchment:#7A6670;
+    --hairline-ink:rgba(243,230,222,0.14);
+    --hairline-parchment:rgba(46,34,48,0.14);
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--ink);color:var(--parchment-text);font-family:'Inter',sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 32px;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--amber);}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;margin:0;}
+  p{margin:0;}
+  :focus-visible{outline:2px solid var(--amber);outline-offset:3px;}
+
+  header.site{padding:28px 0;border-bottom:1px solid var(--hairline-ink);}
+  header.site .wrap{display:flex;align-items:center;justify-content:space-between;}
+  .wordmark{font-family:'Fraunces',serif;font-size:18px;font-weight:600;letter-spacing:0.01em;text-decoration:none;}
+  .wordmark span{color:var(--amber);}
+  nav.links{display:flex;gap:32px;font-size:14px;}
+  nav.links a{text-decoration:none;color:var(--muted-on-ink);transition:color .15s ease;}
+  nav.links a:hover, nav.links a:focus-visible, nav.links a[aria-current]{color:var(--parchment-text);}
+
+  section.hero{padding:96px 0 88px;}
+  section.hero h1{font-size:52px;line-height:1.1;margin:18px 0 24px;max-width:18ch;color:var(--parchment-text);}
+  .hero-sub{font-size:17px;color:var(--muted-on-ink);max-width:52ch;margin-bottom:34px;}
+  .btn{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;padding:14px 28px;border:1px solid var(--amber);color:var(--ink);background:var(--amber);border-radius:2px;text-decoration:none;transition:background .15s ease, color .15s ease;}
+  .btn:hover, .btn:focus-visible{background:transparent;color:var(--amber);}
+
+  section.light{background:var(--parchment);color:var(--ink-text);padding:96px 0;}
+  section.light .eyebrow{color:var(--clay);}
+  section.dark{background:var(--ink);padding:96px 0;}
+  .section-head{max-width:60ch;margin-bottom:48px;}
+  .section-head h2{font-size:34px;line-height:1.2;margin-top:14px;}
+
+  .talks{list-style:none;margin:0;padding:0;border-top:1px solid var(--hairline-parchment);}
+  .talk{display:grid;grid-template-columns:1fr 2fr;gap:40px;padding:32px 0;border-bottom:1px solid var(--hairline-parchment);}
+  .talk time{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.05em;color:var(--clay);display:block;margin-bottom:6px;}
+  .talk .venue{font-size:15px;color:var(--muted-on-parchment);}
+  .talk h3{font-size:21px;line-height:1.3;margin-bottom:10px;color:var(--ink-text);}
+  .talk h3 a{text-decoration-color:var(--clay);text-underline-offset:4px;}
+  .talk p.desc{font-size:15px;color:var(--muted-on-parchment);max-width:52ch;}
+
+  .work-list{border-top:1px solid var(--hairline-ink);}
+  .work-item{display:grid;grid-template-columns:1fr 2fr;gap:40px;padding:32px 0;border-bottom:1px solid var(--hairline-ink);}
+  .work-item h3{font-size:21px;color:var(--parchment-text);}
+  .work-item p{color:var(--muted-on-ink);font-size:15px;max-width:52ch;}
+
+  .bios{display:grid;grid-template-columns:1fr 1fr;gap:48px;}
+  .bio{border-top:2px solid var(--ink-text);padding-top:20px;}
+  .bio.short{border-color:var(--amber);}
+  .bio.long{border-color:var(--clay);}
+  .bio h3{font-size:19px;margin-bottom:12px;color:var(--ink-text);}
+  .bio p{font-size:15px;color:var(--muted-on-parchment);margin-bottom:14px;}
+
+  section.light.soft{background:var(--parchment-soft);}
+  .btn.ghost{background:transparent;color:var(--amber);margin-left:12px;}
+  .btn.ghost:hover, .btn.ghost:focus-visible{background:var(--amber);color:var(--ink);}
+  .section-head .lead{font-size:17px;color:var(--muted-on-parchment);margin-top:18px;}
+  .learn{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;column-gap:48px;border-top:1px solid var(--hairline-parchment);}
+  .learn li{padding:26px 0;border-bottom:1px solid var(--hairline-parchment);}
+  .learn h3{font-size:19px;line-height:1.3;color:var(--ink-text);margin-bottom:8px;}
+  .learn p{font-size:15px;color:var(--muted-on-parchment);}
+  .formats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px;}
+  .format{background:var(--parchment-soft);border-top:2px solid var(--clay);padding:24px 24px 26px;}
+  .format .len{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--clay);display:block;margin-bottom:10px;}
+  .format h3{font-size:19px;color:var(--ink-text);margin-bottom:8px;}
+  .format p{font-size:15px;color:var(--muted-on-parchment);}
+  .training-cta{margin-top:48px;display:flex;align-items:center;gap:28px;flex-wrap:wrap;}
+  .training-cta p{font-size:15px;color:var(--muted-on-parchment);max-width:46ch;}
+  section.contact{padding:96px 0 100px;}
+  section.contact h2{font-size:34px;margin:14px 0 18px;}
+  .contact-sub{color:var(--muted-on-ink);max-width:46ch;margin-bottom:30px;}
+
+  footer.site{border-top:1px solid var(--hairline-ink);padding:32px 0;}
+  footer.site .wrap{display:flex;justify-content:space-between;align-items:center;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted-on-ink);}
+  footer.site a{text-decoration:none;color:var(--muted-on-ink);}
+  footer.site a:hover, footer.site a:focus-visible{color:var(--amber);}
+
+  .hero-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:56px;align-items:center;}
+  .hero-grid > div{min-width:0;}
+  .hero-photo{margin:0;}
+  .hero-photo img{display:block;width:100%;height:auto;border-radius:2px;}
+  .hero-photo figcaption{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted-on-ink);margin-top:12px;}
+  @media (max-width:860px){ .hero-grid{grid-template-columns:1fr;gap:36px;} }
+  @media (max-width:860px){
+    section.hero h1{font-size:38px;}
+    section.hero{padding:56px 0 64px;}
+    section.light, section.dark, section.contact{padding:64px 0;}
+    .talk, .work-item{grid-template-columns:1fr;gap:10px;}
+    .bios{grid-template-columns:1fr;gap:32px;}
+    .learn, .formats{grid-template-columns:1fr;}
+    .learn{column-gap:0;}
+    .btn.ghost{margin-left:0;margin-top:12px;}
+    
+  }
+  /* mobile menu */
+  .menu-toggle{display:none;background:transparent;border:1px solid var(--hairline-ink);color:var(--parchment-text);font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;padding:9px 14px;border-radius:2px;cursor:pointer;}
+  .menu-toggle:hover, .menu-toggle:focus-visible{border-color:var(--amber);color:var(--amber);}
+  @media (max-width:860px){
+    header.site{position:relative;z-index:20;}
+    header.site .wrap{flex-wrap:wrap;}
+    .menu-toggle{display:inline-block;}
+    header.site nav.links{display:none;flex-basis:100%;flex-direction:column;gap:0;margin-top:18px;border-top:1px solid var(--hairline-ink);}
+    header.site.open nav.links{display:flex;}
+    header.site nav.links a{padding:14px 0;font-size:16px;border-bottom:1px solid var(--hairline-ink);}
+    header.site nav.links a:last-child{border-bottom:0;}
+  }
+
+  section.contact h2{line-height:1.2;}
+  .post-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--hairline-parchment);}
+  .post-item{display:grid;grid-template-columns:1fr 2fr;gap:40px;padding:30px 0;border-bottom:1px solid var(--hairline-parchment);}
+  .post-item time{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.05em;color:var(--clay);display:block;margin-bottom:6px;}
+  .post-item .tags{font-size:14px;color:var(--muted-on-parchment);}
+  .post-item h2{font-size:22px;line-height:1.3;margin-bottom:8px;color:var(--ink-text);}
+  .post-item h2 a{text-decoration-color:var(--clay);text-underline-offset:4px;}
+  .post-item p.dek{font-size:15px;color:var(--muted-on-parchment);max-width:52ch;}
+  section.post-hero{padding:80px 0 56px;}
+  section.post-hero h1{font-size:46px;line-height:1.12;margin:18px 0 20px;max-width:22ch;}
+  section.post-hero .dek{font-size:18px;color:var(--muted-on-ink);max-width:56ch;}
+  .byline{margin-top:28px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted-on-ink);}
+  .byline a{color:var(--amber);text-decoration:none;}
+  article.prose{max-width:68ch;font-size:17px;line-height:1.7;}
+  article.prose p{margin:0 0 20px;}
+  article.prose h2{font-size:26px;line-height:1.25;margin:40px 0 14px;color:var(--ink-text);}
+  article.prose ol, article.prose ul{margin:0 0 22px;padding-left:22px;}
+  article.prose li{margin-bottom:10px;}
+  article.prose strong{font-weight:600;}
+  .post-foot{margin-top:40px;padding-top:24px;border-top:1px solid var(--hairline-parchment);font-size:15px;color:var(--muted-on-parchment);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+  .post-foot a{color:var(--clay);text-underline-offset:4px;}
+  @media (max-width:860px){
+    .post-item{grid-template-columns:1fr;gap:8px;}
+    section.post-hero{padding:48px 0 40px;}
+    section.post-hero h1{font-size:34px;}
+    article.prose{font-size:16px;}
+  }
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="wordmark" href="/">Base<span>·</span>Note Data</a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="links" id="site-nav">
+      <a href="/#work">Services</a>
+      <a href="/services">Pricing</a>
+      <a href="/ai-marketing-consultant">AI Consulting</a>
+      <a href="/#about">About</a>
+      <a href="/speaking">Speaking</a>
+      <a href="/blog/">Blog</a>
+      <a href="/best-in-class-quiz">Measurement Quiz</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<section class="post-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="/blog/" style="text-decoration:none">Blog</a> · Measurement audit · Data quality</p>
+    <h1>What a marketing measurement audit actually turns up</h1>
+    <p class="dek">Most of the data looked fine. On closer inspection, it wasn't telling the right story.</p>
+    <p class="byline">Chelsea Cramer · <time datetime="2026-09-18">Sep 18, 2026</time></p>
+  </div>
+</section>
+
+<section class="light">
+  <div class="wrap">
+    <article class="prose">
+      <p>I just wrapped up a full marketing measurement audit for a growing DTC brand, and the biggest surprise was this: most of the data looked okay at first, but on further digging, it wasn't painting an accurate picture.</p>
+      <p>Here's what we found.</p>
+      <h2>1. Broken pipelines</h2>
+      <p>Missing data that will never be recovered. To keep it from happening again, we set up AI-powered alerts that ping Slack when the data looks off, for example when a channel that usually sends a steady share of daily traffic suddenly sends a tiny fraction of it.</p>
+      <h2>2. A naming structure that needed work</h2>
+      <p>Campaigns with a typo in the name were getting categorized as organic. We tightened up the campaign naming process and made the categorization code more forgiving, and added alerts for future typos.</p>
+      <h2>3. Campaign performance siloed in tools</h2>
+      <p>Results lived in separate platforms, which made it hard to connect the dots. Unifying the measurement framework and putting it into one dashboard made holistic trends and impact much easier to see.</p>
+      <p>With those fixes in place, I was able to recommend spend changes that would drive <strong>10%+ revenue growth</strong>.</p>
+      <p>Growth hacking with Claude, ChatGPT or Lovable is great, but it leaves room for exactly these kinds of issues. With a better foundation, every decision becomes easier, faster, and more defensible.</p>
+      <p>Is your marketing data telling you the right story? What's the biggest measurement gap you've run into?</p>
+      <div class="post-foot">
+        <a href="/blog/">More posts</a>
+        <a href="https://www.linkedin.com/feed/update/urn:li:activity:7506721244151635970/">Discuss on LinkedIn</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="wrap">
+    <p class="eyebrow">Work with me</p>
+    <h2>Want a second set of eyes on your measurement?</h2>
+    <p class="contact-sub">I help marketing and growth teams figure out what their spend is actually driving, with MMM, incrementality testing and attribution that finance trusts too.</p>
+    <a class="btn" href="https://calendly.com/chelsea-basenotedata/30min">Book a 30-min call</a>
+  </div>
+</section>
+<footer class="site">
+  <div class="wrap">
+    <span>Base Note Data © 2026</span>
+    <a href="mailto:chelsea@basenotedata.com">basenotedata.com</a>
+  </div>
+</footer>
+<script>
+(function(){
+  var h=document.querySelector('header.site'),b=h&&h.querySelector('.menu-toggle');
+  if(!b)return;
+  function set(o){h.classList.toggle('open',o);b.setAttribute('aria-expanded',o?'true':'false');b.textContent=o?'Close':'Menu';}
+  b.addEventListener('click',function(){set(!h.classList.contains('open'));});
+  h.querySelectorAll('nav.links a').forEach(function(a){a.addEventListener('click',function(){set(false);});});
+})();
+</script>
+<script src="/book-call.js" defer></script>
+</body>
+</html>
