@@ -8,6 +8,10 @@ Base Note Data (basenotedata.com) is a marketing analytics consultancy. It is no
 
 - [About Chelsea Cramer](https://basenotedata.com/#about): Independent marketing measurement and analytics consultant based in New York and founder of Base Note Data, with 13+ years in marketing analytics across fintech, health/wellness, and B2B. Built TV measurement and MMM programs at Credit Karma, where she unified media measurement as budget scaled from $100M to $300M while ROI improved. Currently consults for brands including Robinhood. Previously Director of Marketing Analytics at Gympass/Wellhub, its first marketing analytics hire.
 
+## Case studies
+
+- [Scaling Credit Karma's media spend 3x while raising ROAS](https://basenotedata.com/credit-karma-case-study): How Chelsea Cramer's measurement program (shared short-term and long-term KPIs, a consistent incrementality test cadence, then MMM steering the test plan) let Credit Karma triple paid media from about $100M to more than $300M a year while incremental revenue rose 42% and ROAS increased.
+
 ## Services
 
 - [Marketing mix modeling consultant](https://basenotedata.com/marketing-mix-modeling): Independent MMM (media mix modeling) consulting from Chelsea Cramer. Building and calibrating MMMs that finance and marketing both trust, and turning them into budget decisions.
