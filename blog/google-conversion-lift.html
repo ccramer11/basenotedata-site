@@ -1,0 +1,366 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-HW2QJXRY8R"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-HW2QJXRY8R');
+</script>
+<!-- OpenAI Ads pixel -->
+<script>!function(w,d,s,u){if(w.oaiq)return;var q=function(){q.q.push(arguments)};q.q=[];w.oaiq=q;var j=d.createElement(s);j.async=1;j.src=u;var f=d.getElementsByTagName(s)[0];f.parentNode.insertBefore(j,f)}(window,document,"script","https://bzrcdn.openai.com/sdk/oaiq.min.js");oaiq("init",{pixelId:"BuxGoafLuuGRbvpjdumR95",debug:true});</script>
+<title>How Google&#x27;s Conversion Lift works | Chelsea Cramer</title>
+<meta name="description" content="How Google Ads Conversion Lift works, user-based versus geo-based studies, the requirements, the November 2026 data rules, and how to read Bayesian results.">
+<link rel="canonical" href="https://basenotedata.com/blog/google-conversion-lift">
+<meta property="og:title" content="How Google&#x27;s Conversion Lift works | Chelsea Cramer">
+<meta property="og:description" content="How Google Ads Conversion Lift works, user-based versus geo-based studies, the requirements, the November 2026 data rules, and how to read Bayesian results.">
+<meta property="og:type" content="article">
+<meta property="og:url" content="https://basenotedata.com/blog/google-conversion-lift">
+<meta name="twitter:card" content="summary">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,500;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "How Google's Conversion Lift works",
+  "description": "How Google Ads Conversion Lift works, user-based versus geo-based studies, the requirements, the November 2026 data rules, and how to read Bayesian results.",
+  "datePublished": "2026-11-17",
+  "author": {
+    "@type": "Person",
+    "@id": "https://basenotedata.com/#chelsea",
+    "name": "Chelsea Cramer",
+    "url": "https://basenotedata.com/#about",
+    "sameAs": [
+      "https://www.linkedin.com/in/chelseacramer"
+    ]
+  },
+  "publisher": {
+    "@id": "https://basenotedata.com/#org"
+  },
+  "mainEntityOfPage": "https://basenotedata.com/blog/google-conversion-lift",
+  "keywords": [
+      "Google Ads Conversion Lift",
+      "Incrementality testing",
+      "Performance Max"
+  ]
+}
+</script>
+<style>
+  :root{
+    --ink:#241B24;
+    --ink-soft:#2E222E;
+    --parchment:#F5EAE1;
+    --parchment-soft:#EDDDD1;
+    --clay:#A8536A;
+    --amber:#D3987E;
+    --sage:#8A7484;
+    --ink-text:#2E2230;
+    --parchment-text:#F3E6DE;
+    --muted-on-ink:#A8919E;
+    --muted-on-parchment:#7A6670;
+    --hairline-ink:rgba(243,230,222,0.14);
+    --hairline-parchment:rgba(46,34,48,0.14);
+  }
+  *{box-sizing:border-box;}
+  body{margin:0;background:var(--ink);color:var(--parchment-text);font-family:'Inter',sans-serif;font-size:16px;line-height:1.6;-webkit-font-smoothing:antialiased;}
+  a{color:inherit;}
+  .wrap{max-width:1080px;margin:0 auto;padding:0 32px;}
+  .eyebrow{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;color:var(--amber);}
+  h1,h2,h3{font-family:'Fraunces',serif;font-weight:500;margin:0;}
+  p{margin:0;}
+  :focus-visible{outline:2px solid var(--amber);outline-offset:3px;}
+
+  header.site{padding:28px 0;border-bottom:1px solid var(--hairline-ink);}
+  header.site .wrap{display:flex;align-items:center;justify-content:space-between;}
+  .wordmark{font-family:'Fraunces',serif;font-size:18px;font-weight:600;letter-spacing:0.01em;text-decoration:none;}
+  .wordmark span{color:var(--amber);}
+  nav.links{display:flex;gap:32px;font-size:14px;}
+  nav.links a{text-decoration:none;color:var(--muted-on-ink);transition:color .15s ease;}
+  nav.links a:hover, nav.links a:focus-visible, nav.links a[aria-current]{color:var(--parchment-text);}
+
+  section.hero{padding:96px 0 88px;}
+  section.hero h1{font-size:52px;line-height:1.1;margin:18px 0 24px;max-width:18ch;color:var(--parchment-text);}
+  .hero-sub{font-size:17px;color:var(--muted-on-ink);max-width:52ch;margin-bottom:34px;}
+  .btn{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;padding:14px 28px;border:1px solid var(--amber);color:var(--ink);background:var(--amber);border-radius:2px;text-decoration:none;transition:background .15s ease, color .15s ease;}
+  .btn:hover, .btn:focus-visible{background:transparent;color:var(--amber);}
+
+  section.light{background:var(--parchment);color:var(--ink-text);padding:96px 0;}
+  section.light .eyebrow{color:var(--clay);}
+  section.dark{background:var(--ink);padding:96px 0;}
+  .section-head{max-width:60ch;margin-bottom:48px;}
+  .section-head h2{font-size:34px;line-height:1.2;margin-top:14px;}
+
+  .talks{list-style:none;margin:0;padding:0;border-top:1px solid var(--hairline-parchment);}
+  .talk{display:grid;grid-template-columns:1fr 2fr;gap:40px;padding:32px 0;border-bottom:1px solid var(--hairline-parchment);}
+  .talk time{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.05em;color:var(--clay);display:block;margin-bottom:6px;}
+  .talk .venue{font-size:15px;color:var(--muted-on-parchment);}
+  .talk h3{font-size:21px;line-height:1.3;margin-bottom:10px;color:var(--ink-text);}
+  .talk h3 a{text-decoration-color:var(--clay);text-underline-offset:4px;}
+  .talk p.desc{font-size:15px;color:var(--muted-on-parchment);max-width:52ch;}
+
+  .work-list{border-top:1px solid var(--hairline-ink);}
+  .work-item{display:grid;grid-template-columns:1fr 2fr;gap:40px;padding:32px 0;border-bottom:1px solid var(--hairline-ink);}
+  .work-item h3{font-size:21px;color:var(--parchment-text);}
+  .work-item p{color:var(--muted-on-ink);font-size:15px;max-width:52ch;}
+
+  .bios{display:grid;grid-template-columns:1fr 1fr;gap:48px;}
+  .bio{border-top:2px solid var(--ink-text);padding-top:20px;}
+  .bio.short{border-color:var(--amber);}
+  .bio.long{border-color:var(--clay);}
+  .bio h3{font-size:19px;margin-bottom:12px;color:var(--ink-text);}
+  .bio p{font-size:15px;color:var(--muted-on-parchment);margin-bottom:14px;}
+
+  section.light.soft{background:var(--parchment-soft);}
+  .btn.ghost{background:transparent;color:var(--amber);margin-left:12px;}
+  .btn.ghost:hover, .btn.ghost:focus-visible{background:var(--amber);color:var(--ink);}
+  .section-head .lead{font-size:17px;color:var(--muted-on-parchment);margin-top:18px;}
+  .learn{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;column-gap:48px;border-top:1px solid var(--hairline-parchment);}
+  .learn li{padding:26px 0;border-bottom:1px solid var(--hairline-parchment);}
+  .learn h3{font-size:19px;line-height:1.3;color:var(--ink-text);margin-bottom:8px;}
+  .learn p{font-size:15px;color:var(--muted-on-parchment);}
+  .formats{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;margin-top:56px;}
+  .format{background:var(--parchment-soft);border-top:2px solid var(--clay);padding:24px 24px 26px;}
+  .format .len{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--clay);display:block;margin-bottom:10px;}
+  .format h3{font-size:19px;color:var(--ink-text);margin-bottom:8px;}
+  .format p{font-size:15px;color:var(--muted-on-parchment);}
+  .training-cta{margin-top:48px;display:flex;align-items:center;gap:28px;flex-wrap:wrap;}
+  .training-cta p{font-size:15px;color:var(--muted-on-parchment);max-width:46ch;}
+  section.contact{padding:96px 0 100px;}
+  section.contact h2{font-size:34px;margin:14px 0 18px;}
+  .contact-sub{color:var(--muted-on-ink);max-width:46ch;margin-bottom:30px;}
+
+  footer.site{border-top:1px solid var(--hairline-ink);padding:32px 0;}
+  footer.site .wrap{display:flex;justify-content:space-between;align-items:center;font-family:'IBM Plex Mono',monospace;font-size:12px;color:var(--muted-on-ink);}
+  footer.site a{text-decoration:none;color:var(--muted-on-ink);}
+  footer.site a:hover, footer.site a:focus-visible{color:var(--amber);}
+
+  .hero-grid{display:grid;grid-template-columns:1fr 1.05fr;gap:56px;align-items:center;}
+  .hero-grid > div{min-width:0;}
+  .hero-photo{margin:0;}
+  .hero-photo img{display:block;width:100%;height:auto;border-radius:2px;}
+  .hero-photo figcaption{font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted-on-ink);margin-top:12px;}
+  @media (max-width:860px){ .hero-grid{grid-template-columns:1fr;gap:36px;} }
+  @media (max-width:860px){
+    section.hero h1{font-size:38px;}
+    section.hero{padding:56px 0 64px;}
+    section.light, section.dark, section.contact{padding:64px 0;}
+    .talk, .work-item{grid-template-columns:1fr;gap:10px;}
+    .bios{grid-template-columns:1fr;gap:32px;}
+    .learn, .formats{grid-template-columns:1fr;}
+    .learn{column-gap:0;}
+    .btn.ghost{margin-left:0;margin-top:12px;}
+    
+  }
+  /* mobile menu */
+  .menu-toggle{display:none;background:transparent;border:1px solid var(--hairline-ink);color:var(--parchment-text);font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.12em;text-transform:uppercase;padding:9px 14px;border-radius:2px;cursor:pointer;}
+  .menu-toggle:hover, .menu-toggle:focus-visible{border-color:var(--amber);color:var(--amber);}
+  @media (max-width:860px){
+    header.site{position:relative;z-index:20;}
+    header.site .wrap{flex-wrap:wrap;}
+    .menu-toggle{display:inline-block;}
+    header.site nav.links{display:none;flex-basis:100%;flex-direction:column;gap:0;margin-top:18px;border-top:1px solid var(--hairline-ink);}
+    header.site.open nav.links{display:flex;}
+    header.site nav.links a{padding:14px 0;font-size:16px;border-bottom:1px solid var(--hairline-ink);}
+    header.site nav.links a:last-child{border-bottom:0;}
+  }
+
+  section.contact h2{line-height:1.2;}
+  .post-list{list-style:none;margin:0;padding:0;border-top:1px solid var(--hairline-parchment);}
+  .post-item{display:grid;grid-template-columns:1fr 2fr;gap:40px;padding:30px 0;border-bottom:1px solid var(--hairline-parchment);}
+  .post-item time{font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.05em;color:var(--clay);display:block;margin-bottom:6px;}
+  .post-item .tags{font-size:14px;color:var(--muted-on-parchment);}
+  .post-item h2{font-size:22px;line-height:1.3;margin-bottom:8px;color:var(--ink-text);}
+  .post-item h2 a{text-decoration-color:var(--clay);text-underline-offset:4px;}
+  .post-item p.dek{font-size:15px;color:var(--muted-on-parchment);max-width:52ch;}
+  section.post-hero{padding:80px 0 56px;}
+  section.post-hero h1{font-size:46px;line-height:1.12;margin:18px 0 20px;max-width:22ch;}
+  section.post-hero .dek{font-size:18px;color:var(--muted-on-ink);max-width:56ch;}
+  .byline{margin-top:28px;font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.08em;text-transform:uppercase;color:var(--muted-on-ink);}
+  .byline a{color:var(--amber);text-decoration:none;}
+  article.prose{max-width:68ch;font-size:17px;line-height:1.7;}
+  article.prose p{margin:0 0 20px;}
+  article.prose h2{font-size:26px;line-height:1.25;margin:40px 0 14px;color:var(--ink-text);}
+  article.prose ol, article.prose ul{margin:0 0 22px;padding-left:22px;}
+  article.prose li{margin-bottom:10px;}
+  article.prose strong{font-weight:600;}
+  .post-foot{margin-top:40px;padding-top:24px;border-top:1px solid var(--hairline-parchment);font-size:15px;color:var(--muted-on-parchment);display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap;}
+  .post-foot a{color:var(--clay);text-underline-offset:4px;}
+  @media (max-width:860px){
+    .post-item{grid-template-columns:1fr;gap:8px;}
+    section.post-hero{padding:48px 0 40px;}
+    section.post-hero h1{font-size:34px;}
+    article.prose{font-size:16px;}
+  }
+  article.prose .table-wrap{overflow-x:auto;margin:0 0 24px;}
+  article.prose table{width:100%;border-collapse:collapse;font-size:15px;line-height:1.5;}
+  article.prose th, article.prose td{text-align:left;vertical-align:top;padding:12px 14px 12px 0;border-bottom:1px solid var(--hairline-parchment);}
+  article.prose th{font-family:'IBM Plex Mono',monospace;font-size:12px;letter-spacing:0.06em;text-transform:uppercase;font-weight:500;color:var(--clay);border-bottom:1px solid var(--ink-text);}
+  article.prose a{color:var(--clay);text-underline-offset:3px;}
+  article.prose p.cta{margin-top:32px;padding:20px 24px;background:var(--parchment-soft);border-left:2px solid var(--clay);}
+  article.prose p.sources{font-size:14px;color:var(--muted-on-parchment);}
+  article.prose figure.diagram{margin:8px 0 28px;padding:20px;background:var(--parchment-soft);border-radius:2px;}
+  article.prose figure.diagram svg{display:block;width:100%;height:auto;}
+  article.prose .series{font-size:15px;color:var(--muted-on-parchment);padding:14px 18px;border:1px solid var(--hairline-parchment);margin:0 0 28px;}
+  @media (max-width:860px){ article.prose figure.diagram{overflow-x:auto;padding:14px;} article.prose figure.diagram svg{min-width:620px;} }
+</style>
+</head>
+<body>
+<header class="site">
+  <div class="wrap">
+    <a class="wordmark" href="/">Base<span>·</span>Note Data</a>
+    <button class="menu-toggle" type="button" aria-expanded="false" aria-controls="site-nav">Menu</button>
+    <nav class="links" id="site-nav">
+      <a href="/#work">Services</a>
+      <a href="/services">Pricing</a>
+      <a href="/ai-marketing-consultant">AI Consulting</a>
+      <a href="/#about">About</a>
+      <a href="/speaking">Speaking</a>
+      <a href="/blog/">Blog</a>
+      <a href="/best-in-class-quiz">Measurement Quiz</a>
+      <a href="/#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+<section class="post-hero">
+  <div class="wrap">
+    <p class="eyebrow"><a href="/blog/" style="text-decoration:none">Blog</a> · Incrementality · Google Ads</p>
+    <h1>How Google&#x27;s Conversion Lift works</h1>
+    <p class="dek">How Google Ads Conversion Lift works, user-based versus geo-based studies, the requirements, the November 2026 data rules, and how to read Bayesian results.</p>
+    <p class="byline">Chelsea Cramer · <time datetime="2026-11-17">Nov 17, 2026</time></p>
+  </div>
+</section>
+
+<section class="light">
+  <div class="wrap">
+    <article class="prose">
+<p class="series">Incrementality testing by platform: <a href="/blog/incrementality-testing-ad-platforms">Overview</a> · <a href="/blog/meta-conversion-lift">Meta</a> · <strong>Google</strong> · <a href="/blog/tiktok-conversion-lift-study">TikTok</a> · <a href="/blog/amazon-ads-incrementality">Amazon</a> · <a href="/blog/pinterest-conversion-lift">Pinterest</a> · <a href="/blog/snapchat-conversion-lift">Snapchat</a></p>
+<p>Google's Conversion Lift hides your ads from a random slice of your audience, then measures how many extra conversions the rest produced. You can split by people (user-based) or by region (geo-based).</p>
+<h2>The idea in one picture</h2>
+<figure class="diagram"><svg viewBox="0 0 760 256" role="img" aria-label="Google shows the control group the next ad in the auction instead of yours" font-size="13" font-family="Inter, sans-serif" xmlns="http://www.w3.org/2000/svg">
+<defs><marker id="arr-577" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8A7484"/></marker></defs>
+<text x="24" y="30" font-size="15" font-weight="600" fill="#2E2230">Google shows the control group the next ad in the auction instead of yours</text>
+<g fill="none" stroke="#8A7484" stroke-width="1.25">
+<path d="M204 124H252V94H300" marker-end="url(#arr-577)"/><path d="M204 124H252V174H300" marker-end="url(#arr-577)"/>
+<path d="M520 94H550V114H580" marker-end="url(#arr-577)"/><path d="M520 174H550V134H580" marker-end="url(#arr-577)"/></g>
+<rect x="24" y="100" width="180" height="48" rx="8" fill="none" stroke="#8A7484" stroke-width="1.25"/>
+<text x="114" y="121" text-anchor="middle" font-weight="600" fill="#2E2230">People or regions</text><text x="114" y="138" text-anchor="middle" font-size="11.5" fill="#7A6670">randomly split</text>
+<rect x="300" y="70" width="220" height="48" rx="8" fill="none" stroke="#8A7484" stroke-width="1.25"/>
+<text x="410" y="91" text-anchor="middle" font-weight="600" fill="#2E2230">Test group</text><text x="410" y="108" text-anchor="middle" font-size="11.5" fill="#7A6670">wins the auction, sees your ad</text>
+<rect x="300" y="150" width="220" height="48" rx="8" fill="none" stroke="#8A7484" stroke-width="1.25"/>
+<text x="410" y="171" text-anchor="middle" font-weight="600" fill="#2E2230">Control group</text><text x="410" y="188" text-anchor="middle" font-size="11.5" fill="#7A6670">sees the next ad instead</text>
+<rect x="580" y="100" width="156" height="48" rx="8" fill="#A8536A" fill-opacity="0.12" stroke="#A8536A" stroke-width="2"/>
+<text x="658" y="121" text-anchor="middle" font-weight="600" fill="#2E2230">Lift</text><text x="658" y="138" text-anchor="middle" font-size="11.5" fill="#2E2230">extra conversions</text>
+<text x="24" y="234" font-size="11.5" fill="#7A6670">User-based studies split people; geo-based studies split regions. Holdback can be 1 to 50 percent.</text></svg></figure>
+<p>Both groups see ads. Only the test group sees yours, so the difference is yours alone.</p>
+<h2>Two study types</h2>
+<div class="table-wrap"><table>
+<thead><tr><th></th><th>User-based</th><th>Geo-based</th></tr></thead>
+<tbody>
+<tr><td>Groups built from</td><td>Aggregated user attributes</td><td>Aggregated geographic data</td></tr>
+<tr><td>Breakdowns</td><td>Age and gender</td><td>No demographic breakdown</td></tr>
+<tr><td>Offline conversions</td><td>Not the focus</td><td>Supported</td></tr>
+<tr><td>Budget</td><td>Smaller</td><td>Generally higher</td></tr>
+<tr><td>Main limit</td><td>Relies mostly on opt-in traffic; no iOS app campaigns</td><td>Noisier split between groups</td></tr>
+</tbody></table></div>
+<p>Sources: <a href="https://support.google.com/google-ads/answer/12003020">Google Ads Help</a> and <a href="https://ppc.land/conversion-lift/">PPC Land</a>.</p>
+<h2>How a study runs</h2>
+<ol>
+<li>You pick campaigns and conversions. Google shows a feasibility rating, called study power, from 50% to 95%. Aim for 90% or higher; below that it gives budget guidance.</li>
+<li>You set a holdback of 1–50% of the audience and a length. Studies combined with Brand Lift or Search Lift fix the holdback at 30%.</li>
+<li>Google randomizes the audience. Control-group users are shown the next ad in the auction instead of yours (<a href="https://support.google.com/displayvideo/answer/16804790">Display &amp; Video 360 Help</a>).</li>
+<li>Measuring held-out users relies on hashed customer data, so accurate setup of that data matters.</li>
+<li>Results start appearing on the fourth reporting day; processing can take up to 10 days.</li>
+</ol>
+<h2>What you need</h2>
+<ul>
+<li><strong>Google Ads, user-based:</strong> at least 1,000 observed conversions (modeled ones don't count), a $5,000 budget, and a compatible conversion action. Display, Search, Video, Demand Gen, App (Android only) and Performance Max are supported; iOS app campaigns and Travel Ads aren't (<a href="https://support.google.com/google-ads/answer/12005564">Google Ads Help</a>).</li>
+<li><strong>Display &amp; Video 360:</strong> campaigns should reach about 3,000 conversions during the study. Studies run 7 to 56 days.</li>
+<li><strong>Length:</strong> 7 days is the minimum and more than 14 is recommended. Studies under 14 days showed absolute lift drops of up to 17% for advertisers with long conversion lags.</li>
+<li><strong>Bayesian method:</strong> results need at least 150 conversions from the treatment group and 65 from the control, and spend above $5,000 (<a href="https://support.google.com/google-ads/answer/16627074">Google Ads Help</a>).</li>
+<li>A campaign can sit in only one study at a time.</li>
+<li><strong>Access:</strong> not every account has it. Eligible Search and Performance Max campaigns became self-serve on October 7, 2026; before that they needed a Google rep (<a href="https://searchengineland.com/google-opens-conversion-lift-to-search-and-performance-max-494195">Search Engine Land</a>).</li>
+</ul>
+<h2>Check your data before you launch</h2>
+<p>Google rewrote its setup page between mid-October and mid-November 2026 to spell out which conversion setups work. Search Engine Roundtable spotted the change on November 13 (<a href="https://www.seroundtable.com/google-ads-conversion-lift-set-up-doc-update-42530.html">Search Engine Roundtable</a>, <a href="https://www.relevantaudience.com/google-ads-en/google-ads-conversion-lift-data-readiness-unsupported-setups/">Relevant Audience</a>):</p>
+<ul>
+<li><strong>Not supported:</strong> web conversions imported from Google Analytics. Offline imports with only a click ID (GCLID) aren't enough either; use enhanced conversions for leads with hashed customer data.</li>
+<li><strong>Consent:</strong> basic consent mode is insufficient for campaigns targeting the EEA, UK and DMA regions. You need advanced consent mode.</li>
+<li><strong>Values:</strong> conversion actions with no value, a static value or no valid currency can't report incremental value or iROAS accurately.</li>
+<li><strong>Recommended:</strong> 7 to 14 days of continuous conversion data before launch, and routing 75–80% of web conversion traffic through Google tag gateway.</li>
+</ul>
+<p>The core thresholds didn't change: 1,000 observed conversions, a $5,000 budget and the same eligible campaign types.</p>
+<h2>Reading the results</h2>
+<p>Google reports incremental conversions, relative lift, incremental conversion value, incremental cost per action (iCPA) and incremental ROAS (iROAS, only when conversions carry a value).</p>
+<p>Results use Bayesian statistics, so the interval reads as a probability: an 80% credible interval means an 80% chance the true lift sits inside it. Results appear only once certainty of lift tops 50%. PPC Land summarizes the bands as 90%+ very good, 70–90% good, and 50–70% directional. A "no lift" result doesn't prove the ads failed.</p>
+<p>Google's own examples show the range: a beauty brand's Performance Max test returned an incremental ROAS of £6 per £1, while a financial institution's YouTube test returned £1.10 (<a href="https://business.google.com/ca-en/think/measurement/incrementality-testing/">Think with Google</a>).</p>
+<h2>Recent changes</h2>
+<ul>
+<li><strong>May 22, 2025:</strong> Google moved to Bayesian methods and set 1,000 conversions and $5,000 as user-based minimums (<a href="https://ppc.land/conversion-lift/">PPC Land</a>).</li>
+<li><strong>November 11, 2025:</strong> feasibility ratings arrived. "High" means a 60–90% chance of a conclusive result.</li>
+<li><strong>May 2026:</strong> Meridian GeoX began feeding geo experiments into Google's mix model.</li>
+<li><strong>August 19, 2026:</strong> Google Ads API v25.1 exposed 24 Conversion Lift metrics to allowlisted accounts. Studies still can't be created through the API.</li>
+<li><strong>October 7, 2026:</strong> Search and Performance Max became eligible for self-serve user-based studies.</li>
+<li><strong>November 13, 2026:</strong> the setup page's new data readiness checks and list of unsupported setups were reported.</li>
+</ul>
+<h2>Watch-outs</h2>
+<ul>
+<li>Results are a lower bound. Browser tracking limits and cookie churn can hide real conversions.</li>
+<li>Other campaigns and seasonality can contaminate the control group. Don't run overlapping experiments, especially prospecting and remarketing together.</li>
+<li>Apple's tracking limits hurt click-based measurement. If many iOS conversions go missing, consider excluding iOS traffic.</li>
+<li>Google's guidance links conversion-based bidding and data-driven attribution with higher measured lift, advice that also steers spend toward its automated products.</li>
+<li>Google designs and scores its own test, and it sees Google only.</li>
+</ul>
+<p class="cta">I design and read incrementality tests for brands, on the platforms and independently of them. <a href="https://basenotedata.com/services">See how a Measurement Audit works</a>.</p>
+<h2>Sources</h2>
+<ul class="sources-list">
+<li><a href="https://support.google.com/google-ads/answer/12003020">Google Ads Help: About Conversion Lift</a></li>
+<li><a href="https://support.google.com/google-ads/answer/12005564">Google Ads Help: Set up Conversion Lift based on users</a></li>
+<li><a href="https://support.google.com/google-ads/answer/16627074">Google Ads Help: Bayesian methodology in Conversion Lift</a></li>
+<li><a href="https://support.google.com/displayvideo/answer/16804790">Display &amp; Video 360 Help: Set up Conversion Lift measurement</a></li>
+<li><a href="https://business.google.com/ca-en/think/measurement/incrementality-testing/">Think with Google: Incrementality testing</a></li>
+<li><a href="https://searchengineland.com/google-opens-conversion-lift-to-search-and-performance-max-494195">Search Engine Land: Google opens Conversion Lift to Search and Performance Max</a></li>
+<li><a href="https://www.seroundtable.com/google-ads-conversion-lift-set-up-doc-update-42530.html">Search Engine Roundtable: Google Ads updates Conversion Lift setup documentation</a></li>
+<li><a href="https://www.relevantaudience.com/google-ads-en/google-ads-conversion-lift-data-readiness-unsupported-setups/">Relevant Audience: Conversion Lift guide adds data readiness checks</a></li>
+<li><a href="https://ppc.land/conversion-lift/">PPC Land: Explaining conversion lift</a></li>
+</ul>
+      <div class="post-foot">
+        <a href="/blog/">More posts</a>
+        <a href="/services">Services and pricing</a>
+      </div>
+    </article>
+  </div>
+</section>
+
+<section class="contact">
+  <div class="wrap">
+    <p class="eyebrow">Work with me</p>
+    <h2>Want a second set of eyes on your measurement?</h2>
+    <p class="contact-sub">I help marketing and growth teams figure out what their spend is actually driving, with MMM, incrementality testing and attribution that finance trusts too.</p>
+    <a class="btn" href="https://calendly.com/chelsea-basenotedata/30min">Book a 30-min call</a>
+  </div>
+</section>
+<footer class="site">
+  <div class="wrap">
+    <span>Base Note Data © 2026</span>
+    <a href="mailto:chelsea@basenotedata.com">basenotedata.com</a>
+  </div>
+</footer>
+<script>
+(function(){
+  var h=document.querySelector('header.site'),b=h&&h.querySelector('.menu-toggle');
+  if(!b)return;
+  function set(o){h.classList.toggle('open',o);b.setAttribute('aria-expanded',o?'true':'false');b.textContent=o?'Close':'Menu';}
+  b.addEventListener('click',function(){set(!h.classList.contains('open'));});
+  h.querySelectorAll('nav.links a').forEach(function(a){a.addEventListener('click',function(){set(false);});});
+})();
+</script>
+<script src="/book-call.js" defer></script>
+</body>
+</html>
