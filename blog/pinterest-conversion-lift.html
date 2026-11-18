@@ -210,8 +210,22 @@
   article.prose .series{font-size:15px;color:var(--muted-on-parchment);padding:14px 18px;border:1px solid var(--hairline-parchment);margin:0 0 28px;}
   @media (max-width:860px){ article.prose figure.diagram{overflow-x:auto;padding:14px;} article.prose figure.diagram svg{min-width:620px;} }
 </style>
+<link rel="stylesheet" href="/site-cta.css">
 </head>
 <body>
+<div class="nl-bar" role="region" aria-label="Newsletter signup">
+  <form class="nl-form" action="https://formsubmit.co/chelsea@basenotedata.com" method="POST">
+    <input type="hidden" name="_subject" value="New newsletter signup — Base Note Data">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="source" value="newsletter bar">
+    <input type="text" name="_honey" class="nl-honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <label class="nl-label" for="nl-email">Sign up for my newsletter</label>
+    <input class="nl-input" id="nl-email" type="email" name="email" placeholder="you@company.com" autocomplete="email" required>
+    <button class="nl-btn" type="submit">Subscribe</button>
+    <p class="nl-msg" role="status" aria-live="polite"></p>
+  </form>
+</div>
 <header class="site">
   <div class="wrap">
     <a class="wordmark" href="/">Base<span>·</span>Note Data</a>
@@ -225,6 +239,7 @@
       <a href="/blog/">Blog</a>
       <a href="/best-in-class-quiz">Measurement Quiz</a>
       <a href="/#contact">Contact</a>
+      <a class="nav-cta" href="https://calendly.com/chelsea-basenotedata/30min">Book a call</a>
     </nav>
   </div>
 </header>
@@ -331,5 +346,6 @@
 })();
 </script>
 <script src="/book-call.js" defer></script>
+<script src="/site-cta.js" defer></script>
 </body>
 </html>

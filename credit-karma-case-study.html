@@ -157,8 +157,22 @@
   .stat span{display:block;margin-top:8px;font-size:14px;color:var(--muted-on-ink);}
   @media (max-width:860px){ .stats{grid-template-columns:1fr;gap:22px;} .prose td:first-child{white-space:normal;} }
 </style>
+<link rel="stylesheet" href="/site-cta.css">
 </head>
 <body>
+<div class="nl-bar" role="region" aria-label="Newsletter signup">
+  <form class="nl-form" action="https://formsubmit.co/chelsea@basenotedata.com" method="POST">
+    <input type="hidden" name="_subject" value="New newsletter signup — Base Note Data">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="source" value="newsletter bar">
+    <input type="text" name="_honey" class="nl-honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <label class="nl-label" for="nl-email">Sign up for my newsletter</label>
+    <input class="nl-input" id="nl-email" type="email" name="email" placeholder="you@company.com" autocomplete="email" required>
+    <button class="nl-btn" type="submit">Subscribe</button>
+    <p class="nl-msg" role="status" aria-live="polite"></p>
+  </form>
+</div>
 <header class="site">
   <div class="wrap">
     <a class="wordmark" href="/">Base<span>·</span>Note Data</a>
@@ -172,6 +186,7 @@
       <a href="/blog/">Blog</a>
       <a href="/best-in-class-quiz">Measurement Quiz</a>
       <a href="/#contact">Contact</a>
+      <a class="nav-cta" href="https://calendly.com/chelsea-basenotedata/30min">Book a call</a>
     </nav>
   </div>
 </header>
@@ -282,5 +297,6 @@
   h.querySelectorAll('nav.links a').forEach(function(a){a.addEventListener('click',function(){set(false);});});
 })();
 </script>
+<script src="/site-cta.js" defer></script>
 </body>
 </html>

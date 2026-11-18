@@ -117,6 +117,11 @@
   .hero-sub{font-size:17px;color:var(--muted-on-ink);max-width:56ch;}
   .btn{display:inline-block;font-family:'IBM Plex Mono',monospace;font-size:13px;letter-spacing:0.04em;text-transform:uppercase;padding:14px 28px;border:1px solid var(--amber);color:var(--ink);background:var(--amber);border-radius:2px;text-decoration:none;transition:background .15s ease, color .15s ease;}
   .btn:hover, .btn:focus-visible{background:transparent;color:var(--amber);}
+  .hero-ctas{display:flex;flex-wrap:wrap;gap:12px;margin-top:32px;}
+  .btn.ghost-light{background:transparent;color:var(--parchment-text);border-color:var(--hairline-ink);}
+  .btn.ghost-light:hover, .btn.ghost-light:focus-visible{border-color:var(--amber);color:var(--amber);}
+  .offer-ctas{display:flex;flex-wrap:wrap;align-items:center;gap:14px 24px;}
+  .offer-body .btn:hover, .offer-body .btn:focus-visible{background:var(--ink);border-color:var(--ink);color:var(--parchment-text);}
 
   section.light{background:var(--parchment);color:var(--ink-text);padding:96px 0;}
   section.light .eyebrow{color:var(--clay);}
@@ -181,8 +186,22 @@
     header.site nav.links a:last-child{border-bottom:0;}
   }
 </style>
+<link rel="stylesheet" href="/site-cta.css">
 </head>
 <body>
+<div class="nl-bar" role="region" aria-label="Newsletter signup">
+  <form class="nl-form" action="https://formsubmit.co/chelsea@basenotedata.com" method="POST">
+    <input type="hidden" name="_subject" value="New newsletter signup — Base Note Data">
+    <input type="hidden" name="_template" value="table">
+    <input type="hidden" name="_captcha" value="false">
+    <input type="hidden" name="source" value="newsletter bar">
+    <input type="text" name="_honey" class="nl-honey" tabindex="-1" autocomplete="off" aria-hidden="true">
+    <label class="nl-label" for="nl-email">Sign up for my newsletter</label>
+    <input class="nl-input" id="nl-email" type="email" name="email" placeholder="you@company.com" autocomplete="email" required>
+    <button class="nl-btn" type="submit">Subscribe</button>
+    <p class="nl-msg" role="status" aria-live="polite"></p>
+  </form>
+</div>
 <header class="site">
   <div class="wrap">
     <a class="wordmark" href="/">Base<span>·</span>Note Data</a>
@@ -196,6 +215,7 @@
       <a href="/blog/">Blog</a>
       <a href="/best-in-class-quiz">Measurement Quiz</a>
       <a href="/#contact">Contact</a>
+      <a class="nav-cta" href="https://calendly.com/chelsea-basenotedata/30min">Book a call</a>
     </nav>
   </div>
 </header>
@@ -205,6 +225,10 @@
     <p class="eyebrow">Services &amp; pricing · New York City</p>
     <h1>Clear scope. Clear price.</h1>
     <p class="hero-sub">Every engagement is with me directly, not a junior team. Pick the one that fits where you are, or book a call and I'll tell you honestly which one makes sense.</p>
+    <div class="hero-ctas">
+      <a class="btn" href="https://calendly.com/chelsea-basenotedata/30min">Book a 30-min call</a>
+      <a class="btn ghost-light" href="mailto:chelsea@basenotedata.com?subject=Question%20about%20working%20together">Email me</a>
+    </div>
   </div>
 </section>
 
@@ -228,7 +252,10 @@
             <li>A prioritized roadmap: which tests to run, whether you need an MMM, and what to fix in the data</li>
             <li>A readout with your marketing and finance leads</li>
           </ul>
-          <a class="text-link" href="https://calendly.com/chelsea-basenotedata/30min">Book a 30-min intro call</a>
+          <div class="offer-ctas">
+            <a class="btn" href="https://calendly.com/chelsea-basenotedata/30min">Book a 30-min intro call</a>
+            <a class="text-link" href="mailto:chelsea@basenotedata.com?subject=Measurement%20audit">Or email me</a>
+          </div>
         </div>
       </div>
 
@@ -246,7 +273,10 @@
             <li>Budget allocation recommendations and readouts for marketing, finance and leadership</li>
             <li>Mentor your analysts and set up processes they can run without me</li>
           </ul>
-          <a class="text-link" href="https://calendly.com/chelsea-basenotedata/30min">Book a 30-min intro call</a>
+          <div class="offer-ctas">
+            <a class="btn" href="https://calendly.com/chelsea-basenotedata/30min">Book a call to scope it</a>
+            <a class="text-link" href="mailto:chelsea@basenotedata.com?subject=Fractional%20measurement%20lead">Or email me</a>
+          </div>
         </div>
       </div>
 
@@ -258,7 +288,10 @@
         </div>
         <div class="offer-body">
           <p>Workshops that teach analysts to present data so clients, CMOs and CFOs act on it, plus talks and panels on marketing measurement. In person in New York City or virtual.</p>
-          <a class="text-link" href="/speaking">See talks and training formats</a>
+          <div class="offer-ctas">
+            <a class="btn" href="mailto:chelsea@basenotedata.com?subject=Training%20%26%20speaking">Email me about training</a>
+            <a class="text-link" href="/speaking">See talks and training formats</a>
+          </div>
         </div>
       </div>
 
@@ -318,5 +351,6 @@
   h.querySelectorAll('nav.links a').forEach(function(a){a.addEventListener('click',function(){set(false);});});
 })();
 </script>
+<script src="/site-cta.js" defer></script>
 </body>
 </html>
