@@ -6,7 +6,7 @@
 // - book-call.js and site-cta.js call posthog.identify(email) so anonymous browsing history
 //   gets attached to the person once they hand over an email.
 (function(){
-  var KEY='REPLACE_WITH_POSTHOG_PROJECT_KEY'; // public project key (phc_...), safe to ship in client code
+  var KEY='phc_qcigNQFjA6PMArwK3AKmriVp3UPUNf4jYie2axPiBHi2'; // public project key (phc_...), safe to ship in client code
   var HOST='https://us.i.posthog.com';        // use https://eu.i.posthog.com for an EU project
   if(!KEY || KEY.indexOf('phc_')!==0) return;
 
