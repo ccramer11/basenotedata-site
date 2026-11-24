@@ -72,6 +72,7 @@
     var btn=form.querySelector('.bc-submit'); btn.disabled=true; btn.textContent='One sec…';
     var name=form.elements['name'].value.trim(), email=form.elements['email'].value.trim(), company=form.elements['company'].value.trim();
     var dest=withPrefill(bookingUrl,name,email);
+    try{ window.posthog && posthog.identify(email,{email:email,name:name,company:company}); }catch(err){}
 
     var pending=2, done=false;
     function go(){ if(done) return; done=true; window.location.href=dest; }

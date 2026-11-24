@@ -34,6 +34,7 @@
       }).then(function(r){ return r.json().catch(function(){ return {}; }).then(function(d){ return r.ok && d.success!==false && d.success!=='false'; }); })
         .then(function(ok){
           if(!ok){ fail(); return; }
+          try{ window.posthog && posthog.identify(email,{email:email}); }catch(err){}
           try{ window.gtag && gtag('event','newsletter_signup',{method:'newsletter_bar',page_path:location.pathname}); }catch(err){}
           form.classList.add('done');
           msg.textContent='Thanks, you’re on the list.';
