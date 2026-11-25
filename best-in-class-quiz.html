@@ -177,10 +177,10 @@
 </head>
 <body>
 <div class="nl-bar" role="region" aria-label="Newsletter signup">
-  <form class="nl-form" action="https://formsubmit.co/chelsea@basenotedata.com" method="POST">
-    <input type="hidden" name="_subject" value="New newsletter signup — Base Note Data">
-    <input type="hidden" name="_template" value="table">
-    <input type="hidden" name="_captcha" value="false">
+  <form class="nl-form" action="https://api.web3forms.com/submit" method="POST">
+    <input type="hidden" name="access_key" value="5a32258a-c5d2-4a9b-8203-ebb6d1462fb4">
+    <input type="hidden" name="from_name" value="Base Note Data website">
+    <input type="hidden" name="subject" value="New newsletter signup — Base Note Data">
     <input type="hidden" name="source" value="newsletter bar">
     <input type="text" name="_honey" class="nl-honey" tabindex="-1" autocomplete="off" aria-hidden="true">
     <label class="nl-label" for="nl-email">Sign up for my newsletter</label>
@@ -565,9 +565,9 @@
       var params = {};
       try { new URLSearchParams(location.search).forEach(function (v, k) { params[k] = v; }); } catch (e) {}
       var data = {
-        _subject: "Quiz completion: " + st.name + " (" + s.total + "/" + s.max + ")",
-        _template: "table",
-        _captcha: "false",
+        access_key: "5a32258a-c5d2-4a9b-8203-ebb6d1462fb4",
+        from_name: "Base Note Data website",
+        subject: "Quiz completion: " + st.name + " (" + s.total + "/" + s.max + ")",
         Stage: st.short + " " + st.name,
         Score: s.total + " / " + s.max,
         Dimensions: dimTxt,
@@ -577,7 +577,7 @@
         Device: window.innerWidth < 768 ? "mobile" : "desktop"
       };
       QUESTIONS.forEach(function (Q, i) { data["Q" + (i + 1) + ". " + Q.q] = Q.a[answers[i]]; });
-      fetch("https://formsubmit.co/ajax/chelsea@basenotedata.com", {
+      fetch("https://api.web3forms.com/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json", "Accept": "application/json" },
         body: JSON.stringify(data),
