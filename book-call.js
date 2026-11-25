@@ -1,11 +1,12 @@
 // "Book a call" lead capture.
 // Every booking link (Calendly, or the Google appointment page on /services) opens a short form first.
-// On submit: the details are emailed via FormSubmit, conversions fire (OpenAI Ads lead_created,
+// On submit: the details are emailed via Web3Forms, conversions fire (OpenAI Ads lead_created,
 // GA4 generate_lead, Google Ads conversion_event_submit_lead_form), then the visitor continues to the
 // booking page with name and email prefilled. Navigation waits at most ~2s so tracking never blocks anyone.
 (function(){
   var SELECTOR='a[href*="calendly.com"], a[href*="appointments/schedules"]';
-  var ENDPOINT='https://formsubmit.co/ajax/chelsea@basenotedata.com';
+  var ENDPOINT='https://api.web3forms.com/submit';
+  var ACCESS_KEY='5a32258a-c5d2-4a9b-8203-ebb6d1462fb4'; // public Web3Forms key (delivers to chelsea@basenotedata.com)
 
   var css=''+
     '.bc-dialog{border:1px solid var(--hairline-ink,rgba(243,230,222,.14));border-radius:4px;padding:0;'+
@@ -90,10 +91,11 @@
         method:'POST',
         headers:{'Content-Type':'application/json','Accept':'application/json'},
         body:JSON.stringify({
+          access_key:ACCESS_KEY,
+          from_name:'Base Note Data website',
           name:name, email:email, company:company,
           page:location.pathname,
-          _subject:'New call request — Base Note Data',
-          _template:'table', _captcha:'false'
+          subject:'New call request — Base Note Data'
         }),
         keepalive:true
       }).then(step,step);

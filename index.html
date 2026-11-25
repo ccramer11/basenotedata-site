@@ -360,10 +360,10 @@
 </head>
 <body>
 <div class="nl-bar" role="region" aria-label="Newsletter signup">
-  <form class="nl-form" action="https://formsubmit.co/chelsea@basenotedata.com" method="POST">
-    <input type="hidden" name="_subject" value="New newsletter signup — Base Note Data">
-    <input type="hidden" name="_template" value="table">
-    <input type="hidden" name="_captcha" value="false">
+  <form class="nl-form" action="https://api.web3forms.com/submit" method="POST">
+    <input type="hidden" name="access_key" value="5a32258a-c5d2-4a9b-8203-ebb6d1462fb4">
+    <input type="hidden" name="from_name" value="Base Note Data website">
+    <input type="hidden" name="subject" value="New newsletter signup — Base Note Data">
     <input type="hidden" name="source" value="newsletter bar">
     <input type="text" name="_honey" class="nl-honey" tabindex="-1" autocomplete="off" aria-hidden="true">
     <label class="nl-label" for="nl-email">Sign up for my newsletter</label>
@@ -522,10 +522,10 @@
         <a class="direct-email" style="margin-top:0" href="mailto:chelsea@basenotedata.com">chelsea@basenotedata.com</a>
       </div>
     </div>
-    <form class="contact-form" action="https://formsubmit.co/chelsea@basenotedata.com" method="POST">
-      <input type="hidden" name="_subject" value="New question — Base Note Data">
-      <input type="hidden" name="_template" value="table">
-      <input type="hidden" name="_captcha" value="false">
+    <form class="contact-form" action="https://api.web3forms.com/submit" method="POST">
+    <input type="hidden" name="access_key" value="5a32258a-c5d2-4a9b-8203-ebb6d1462fb4">
+    <input type="hidden" name="from_name" value="Base Note Data website">
+      <input type="hidden" name="subject" value="New question — Base Note Data">
       <input type="text" name="_honey" class="honey" tabindex="-1" autocomplete="off">
       <div>
         <label for="email">Email</label>
@@ -537,6 +537,7 @@
       </div>
       <button class="submit" type="submit">Send question</button>
       <p class="contact-sub" style="margin:0;font-size:14px">I'll respond within 24 hours.</p>
+      <p class="contact-status" role="status" aria-live="polite" style="margin:0;font-size:14px"></p>
     </form>
   </div>
 </section>
@@ -549,23 +550,41 @@
 </footer>
 
 <script>
-// Conversions on contact form submit: OpenAI Ads (appointment_scheduled), GA4 (generate_lead),
-// and Google Ads (conversion_event_submit_lead_form). The form is sent once the Google event confirms,
-// or after 2s at most, so tracking never blocks the visitor.
+// Contact form: sends in the background via Web3Forms (no page reload) and fires conversions in parallel:
+// OpenAI Ads (appointment_scheduled), GA4 (generate_lead), Google Ads (conversion_event_submit_lead_form).
+// The conversions fire only once the message has actually been accepted.
 (function(){
   var form=document.querySelector('form.contact-form');
   if(!form) return;
+  var btn=form.querySelector('.submit'), msg=form.querySelector('.contact-status');
   form.addEventListener('submit',function(e){
-    if(form.dataset.tracked) return;
     e.preventDefault();
-    form.dataset.tracked='1';
-    var done=false, go=function(){ if(done) return; done=true; form.submit(); };
-    try{ window.oaiq && oaiq("measure","appointment_scheduled",{type:"customer_action"}); }catch(err){}
-    try{ window.gtag && gtag('event','generate_lead',{method:'contact_form',transport_type:'beacon'}); }catch(err){}
-    try{
-      if(window.gtag){ gtag('event','conversion_event_submit_lead_form',{event_callback:go,event_timeout:2000}); }
-    }catch(err){}
-    setTimeout(go, window.gtag ? 2200 : 0);
+    if(!form.checkValidity()){ form.reportValidity(); return; }
+    if(form.elements['_honey'] && form.elements['_honey'].value) return;
+    var label=btn.textContent;
+    btn.disabled=true; btn.textContent='Sending…'; msg.textContent='';
+    var data={};
+    new FormData(form).forEach(function(v,k){ if(k!=='_honey') data[k]=v; });
+    data.page=location.pathname;
+    fetch(form.action,{
+      method:'POST',
+      headers:{'Content-Type':'application/json','Accept':'application/json'},
+      body:JSON.stringify(data)
+    }).then(function(r){ return r.json().catch(function(){ return {}; }).then(function(d){ return r.ok && d.success!==false && d.success!=='false'; }); })
+      .then(function(ok){
+        if(!ok) throw new Error('send failed');
+        try{ window.posthog && posthog.identify(data.email,{email:data.email}); }catch(err){}
+        try{ window.oaiq && oaiq("measure","appointment_scheduled",{type:"customer_action"}); }catch(err){}
+        try{ window.gtag && gtag('event','generate_lead',{method:'contact_form',transport_type:'beacon'}); }catch(err){}
+        try{ window.gtag && gtag('event','conversion_event_submit_lead_form'); }catch(err){}
+        form.reset();
+        btn.textContent='Sent';
+        msg.textContent='Thanks, got it. I\u2019ll respond within 24 hours.';
+      })
+      .catch(function(){
+        btn.disabled=false; btn.textContent=label;
+        msg.textContent='Something went wrong. Please try again, or email chelsea@basenotedata.com.';
+      });
   });
 })();
 </script>

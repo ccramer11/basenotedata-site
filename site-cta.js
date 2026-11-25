@@ -1,9 +1,10 @@
-// Newsletter signup bar: sends the email to chelsea@basenotedata.com via FormSubmit, no page reload.
+// Newsletter signup bar: sends the email to chelsea@basenotedata.com via Web3Forms, no page reload.
 // (The form's plain action/method still works as a fallback if this script doesn't load.)
 // Fires a GA4 "newsletter_signup" event only. It deliberately does not fire the lead-conversion
 // events used for the call-booking and contact forms, so newsletter signups don't count as leads in ad reporting.
 (function(){
-  var ENDPOINT='https://formsubmit.co/ajax/chelsea@basenotedata.com';
+  var ENDPOINT='https://api.web3forms.com/submit';
+  var ACCESS_KEY='5a32258a-c5d2-4a9b-8203-ebb6d1462fb4'; // public Web3Forms key (delivers to chelsea@basenotedata.com)
 
   function setup(form){
     var msg=form.querySelector('.nl-msg'), btn=form.querySelector('.nl-btn');
@@ -24,12 +25,12 @@
         method:'POST',
         headers:{'Content-Type':'application/json','Accept':'application/json'},
         body:JSON.stringify({
+          access_key:ACCESS_KEY,
+          from_name:'Base Note Data website',
           email:email,
           source:'newsletter bar',
           page:location.pathname,
-          _subject:'New newsletter signup — Base Note Data',
-          _template:'table',
-          _captcha:'false'
+          subject:'New newsletter signup — Base Note Data'
         })
       }).then(function(r){ return r.json().catch(function(){ return {}; }).then(function(d){ return r.ok && d.success!==false && d.success!=='false'; }); })
         .then(function(ok){
